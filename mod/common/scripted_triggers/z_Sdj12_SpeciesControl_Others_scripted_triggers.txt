@@ -1,0 +1,103 @@
+
+#########################################################################
+#########################################################################
+#####																#####
+#####	Species Discrimination on Job								#####
+#####																#####
+#####	Other scripted_trigggers for Controling Species Job Right	#####
+#####																#####
+#########################################################################
+#########################################################################
+
+#############################
+###	Trigger for Species	###
+#############################
+#
+# scope: this = species, root = country
+#
+
+SdjTriggerSubSpeciesOriginallyModifiable = {
+	root = { SdjTriggerAvailableCountryGestalt = yes }
+	is_same_species = root.owner_species
+	OR = {
+		has_trait = trait_hive_mind
+		has_trait = trait_machine_unit
+	}
+}
+
+SdjTriggerSubSpeciesModifiable = {
+	OR = {
+		SdjTriggerSubSpeciesOriginallyModifiable = yes
+		has_species_flag = SdjFlagSubSpeciesModified_@root
+	}
+}
+
+### Scopes: this = species, root = country
+# (only used on Edict Menu: SdjEvent.1011)
+SdjTriggerAvailableSpeciesMenu = {
+	NOR = {
+		has_citizenship_type = { type = citizenship_organic_trophy }
+		has_species_flag = CmtFlagSpeciesAlreadyListed@root
+	}
+	if = {
+		limit = { root = { is_gestalt = no } }
+		# SdjTriggerAvailableSpeciesRegular
+		OR = {
+			is_valid_pop_for_PLANET_KILLER_NANOBOTS = yes
+			# NOR = {
+			# 	has_trait = trait_hive_mind
+			# 	has_trait = trait_machine_unit
+			# }
+			AND = {
+				root = {
+					OR = {
+						has_ascension_perk = ap_synthetic_evolution
+						has_technology = tech_robotic_workers
+					}
+				}
+				is_same_species = root.owner_species
+				is_robotic = yes # has_trait = trait_mechanical
+			}
+		}
+	} else = {
+		# root = { SdjTriggerAvailableCountryGestalt = yes }
+		# SdjTriggerAvailableSpeciesGestalt
+		OR = {
+			AND = {
+				is_valid_pop_for_PLANET_KILLER_NANOBOTS = no
+				# OR = {
+				# 	has_trait = trait_hive_mind
+				# 	has_trait = trait_machine_unit
+				# }
+				OR = {
+					is_same_species = root.owner_species
+					has_citizenship_type = { type = citizenship_full country = root }
+					has_citizenship_type = { type = citizenship_full_machine country = root }
+				}
+			}
+			AND = {
+				root = { has_valid_civic = civic_machine_assimilator }
+				OR = {
+					has_trait = trait_cybernetic
+					has_citizenship_type = { type = citizenship_assimilation country = root }
+				}
+			}
+		}
+	}
+}
+
+#########################
+###	Trigger for Pop	###
+#########################
+#
+# Scope: this = pop
+#
+# Deprecated 3.6
+# SdjTriggerPotentialHappinessModifier = {
+# 	# species = {}
+# 	NOR = {
+# 		is_enslaved = yes
+# 		is_being_purged = yes
+# 		is_being_assimilated = yes
+# 	}
+# }

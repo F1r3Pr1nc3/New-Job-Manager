@@ -1,0 +1,17 @@
+﻿
+##################################################
+##################################################
+#####                                        #####
+#####    Job Priority Manager                #####
+#####                                        #####
+#####    Localization Texts for Templates    #####
+#####                                        #####
+##################################################
+##################################################
+
+### Names of priority templates can be modified here.
+
+l_simp_chinese:
+ SdjTextPriorityTemplate1: "模板 1"
+ SdjTextPriorityTemplate2: "模板 2"
+ SdjTextPriorityTemplate3: "模板 3"

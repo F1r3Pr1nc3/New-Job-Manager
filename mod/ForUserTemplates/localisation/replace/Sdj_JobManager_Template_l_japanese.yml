@@ -1,0 +1,18 @@
+﻿
+##################################################
+##################################################
+#####                                        #####
+#####    Job Priority Manager                #####
+#####                                        #####
+#####    Localization Texts for Templates    #####
+#####                                        #####
+##################################################
+##################################################
+
+### Names of priority templates can be modified here.
+
+l_japanese:
+
+ SdjTextPriorityTemplate1: "テンプレート1"
+ SdjTextPriorityTemplate2: "テンプレート2"
+ SdjTextPriorityTemplate3: "テンプレート3"

@@ -1,0 +1,18 @@
+﻿
+##################################################
+##################################################
+#####                                        #####
+#####    Job Priority Manager                #####
+#####                                        #####
+#####    Localization Texts for Templates    #####
+#####                                        #####
+##################################################
+##################################################
+
+### Names of priority templates can be modified here.
+
+l_russian:
+
+ SdjTextPriorityTemplate1: "Шаблон 1"
+ SdjTextPriorityTemplate2: "Шаблон 2"
+ SdjTextPriorityTemplate3: "Шаблон 3"

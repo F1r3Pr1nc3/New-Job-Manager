@@ -1,0 +1,43 @@
+
+######################################################
+######################################################
+#####												#####
+#####	Species Discrimination on Job			#####
+#####												#####
+#####	scripted_trigggers written in pop_jobs	#####
+#####												#####
+######################################################
+######################################################
+#
+# For only Job Manager, but not original Species Discriminaion on Job
+#
+
+######################################
+###	Original Trigger of this Mod	###
+######################################
+
+### For Regular Pops: Written in 'Overwrite Trigger of Vanilla'
+SdjTriggerCheck_job_cat_ruler = {
+	# SdjTriggerBannedFromRank3_Regular = no
+	NAND = {
+		owner = { SdjTriggerAvailableCountryRegular = yes }
+		NOT = { planet = { has_planet_flag = SdjFlagDeregulationOfJob@prev.owner } }
+		SdjTriggerBannedFromRank3_Common = yes
+	}
+}
+SdjTriggerCheck_job_cat_specialist = {
+	# SdjTriggerBannedFromRank2_Regular = no
+	NAND = {
+		owner = { SdjTriggerAvailableCountryRegular = yes }
+		NOT = { planet = { has_planet_flag = SdjFlagDeregulationOfJob@prev.owner } }
+		SdjTriggerBannedFromRank2_Common = yes
+	}
+}
+SdjTriggerCheck_job_cat_worker = {
+	# SdjTriggerBannedFromRank1_Regular = no
+	NAND = {
+		owner = { SdjTriggerAvailableCountryRegular = yes }
+		NOT = { planet = { has_planet_flag = SdjFlagDeregulationOfJob@prev.owner } }
+		SdjTriggerBannedFromRank1_Common = yes
+	}
+}

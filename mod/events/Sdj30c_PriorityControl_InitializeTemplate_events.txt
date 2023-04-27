@@ -1,0 +1,356 @@
+namespace = SdjEvent
+###########################################################
+###########################################################
+#####													#####
+#####	Job Priority Manager							#####
+#####													#####
+#####	Initialization of User's Priority Templates		#####
+#####													#####
+###########################################################
+###########################################################
+### Temp Initialization on_game_start
+event = {
+	id = SdjEvent.0400
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		#################################################
+		###	Initialization of User's Priority Templates	###
+		#################################################
+		every_playable_country = {
+			limit = { is_ai = no }
+			# SdjEffectInitializeTemplate = {
+			if = {
+				limit = { always = @SdjConstTemplate1Enabled }
+				### Set Flag to Strage of Template
+				if = {
+					limit = { NOT = { any_system_within_border = { has_star_flag = SdjFlagSystemTemplateSavedOn1_@root } } }
+					random_system_within_border = {
+						limit = { NOT = { has_star_flag = SdjFlagSystemAnyTemplateSavedOn } }
+						set_star_flag = SdjFlagSystemAnyTemplateSavedOn
+						set_star_flag = SdjFlagSystemTemplateSavedOn1_@prev
+					}
+				}
+
+				random_system_within_border = {
+					limit = { has_star_flag = SdjFlagSystemTemplateSavedOn1_@prev }
+					set_variable = { which = SdjVarJobPriority_job_criminal			value = @SdjConstTemplate1_job_criminal }
+					set_variable = { which = SdjVarJobPriority_job_deviant_drone	value = @SdjConstTemplate1_job_deviant_drone }
+					set_variable = { which = SdjVarJobPriority_job_corrupt_drone	value = @SdjConstTemplate1_job_corrupt_drone }
+					set_variable = { which = SdjVarJobPriority_job_head_researcher value = @SdjConstTemplate1_job_head_researcher }
+					set_variable = { which = SdjVarJobPriority_job_high_priest value = @SdjConstTemplate1_job_high_priest }
+					set_variable = { which = SdjVarJobPriority_job_politician value = @SdjConstTemplate1_job_politician }
+					set_variable = { which = SdjVarJobPriority_job_noble value = @SdjConstTemplate1_job_noble }
+					set_variable = { which = SdjVarJobPriority_job_merchant value = @SdjConstTemplate1_job_merchant }
+					set_variable = { which = SdjVarJobPriority_job_executive value = @SdjConstTemplate1_job_executive }
+					set_variable = { which = SdjVarJobPriority_job_knight_commander value = @SdjConstTemplate1_job_knight_commander }
+					set_variable = { which = SdjVarJobPriority_job_colonist value = @SdjConstTemplate1_job_colonist }
+					set_variable = { which = SdjVarJobPriority_job_researcher value = @SdjConstTemplate1_job_researcher }
+					set_variable = { which = SdjVarJobPriority_job_priest value = @SdjConstTemplate1_job_priest }
+					set_variable = { which = SdjVarJobPriority_job_death_priest value = @SdjConstTemplate1_job_death_priest }
+					set_variable = { which = SdjVarJobPriority_job_foundry value = @SdjConstTemplate1_job_foundry }
+					set_variable = { which = SdjVarJobPriority_job_enforcer value = @SdjConstTemplate1_job_enforcer }
+					set_variable = { which = SdjVarJobPriority_job_telepath value = @SdjConstTemplate1_job_telepath }
+					set_variable = { which = SdjVarJobPriority_job_artisan value = @SdjConstTemplate1_job_artisan }
+					set_variable = { which = SdjVarJobPriority_job_entertainer value = @SdjConstTemplate1_job_entertainer }
+					set_variable = { which = SdjVarJobPriority_job_duelist value = @SdjConstTemplate1_job_duelist }
+					set_variable = { which = SdjVarJobPriority_job_culture_worker value = @SdjConstTemplate1_job_culture_worker }
+					set_variable = { which = SdjVarJobPriority_job_politician value = @SdjConstTemplate1_job_politician }
+					set_variable = { which = SdjVarJobPriority_job_chemist value = @SdjConstTemplate1_job_chemist }
+					set_variable = { which = SdjVarJobPriority_job_translucer value = @SdjConstTemplate1_job_translucer }
+					set_variable = { which = SdjVarJobPriority_job_gas_refiner value = @SdjConstTemplate1_job_gas_refiner }
+					set_variable = { which = SdjVarJobPriority_job_roboticist value = @SdjConstTemplate1_job_roboticist }
+					set_variable = { which = SdjVarJobPriority_job_healthcare value = @SdjConstTemplate1_job_healthcare }
+					set_variable = { which = SdjVarJobPriority_job_manager value = @SdjConstTemplate1_job_manager }
+					set_variable = { which = SdjVarJobPriority_job_necromancer value = @SdjConstTemplate1_job_necromancer }
+					set_variable = { which = SdjVarJobPriority_job_death_chronicler value = @SdjConstTemplate1_job_death_chronicler }
+					set_variable = { which = SdjVarJobPriority_job_necro_apprentice value = @SdjConstTemplate1_job_necro_apprentice }
+					set_variable = { which = SdjVarJobPriority_job_clerk value = @SdjConstTemplate1_job_clerk }
+					set_variable = { which = SdjVarJobPriority_job_technician value = @SdjConstTemplate1_job_technician }
+					set_variable = { which = SdjVarJobPriority_job_miner value = @SdjConstTemplate1_job_miner }
+					set_variable = { which = SdjVarJobPriority_job_crystal_miner value = @SdjConstTemplate1_job_crystal_miner }
+					set_variable = { which = SdjVarJobPriority_job_gas_extractor value = @SdjConstTemplate1_job_gas_extractor }
+					set_variable = { which = SdjVarJobPriority_job_mote_harvester value = @SdjConstTemplate1_job_mote_harvester }
+					set_variable = { which = SdjVarJobPriority_job_farmer value = @SdjConstTemplate1_job_farmer }
+					set_variable = { which = SdjVarJobPriority_job_soldier value = @SdjConstTemplate1_job_soldier }
+					set_variable = { which = SdjVarJobPriority_job_preacher value = @SdjConstTemplate1_job_preacher }
+					set_variable = { which = SdjVarJobPriority_job_mortal_initiate value = @SdjConstTemplate1_job_mortal_initiate }
+					set_variable = { which = SdjVarJobPriority_job_spawning_drone value = @SdjConstTemplate1_job_spawning_drone }
+					set_variable = { which = SdjVarJobPriority_job_replicator value = @SdjConstTemplate1_job_replicator }
+					set_variable = { which = SdjVarJobPriority_job_coordinator value = @SdjConstTemplate1_job_coordinator }
+					set_variable = { which = SdjVarJobPriority_job_evaluator value = @SdjConstTemplate1_job_evaluator }
+					set_variable = { which = SdjVarJobPriority_job_synapse_drone value = @SdjConstTemplate1_job_synapse_drone }
+					set_variable = { which = SdjVarJobPriority_job_brain_drone value = @SdjConstTemplate1_job_brain_drone }
+					set_variable = { which = SdjVarJobPriority_job_calculator value = @SdjConstTemplate1_job_calculator }
+					set_variable = { which = SdjVarJobPriority_job_artisan_drone value = @SdjConstTemplate1_job_artisan_drone }
+					set_variable = { which = SdjVarJobPriority_job_fabricator value = @SdjConstTemplate1_job_fabricator }
+					set_variable = { which = SdjVarJobPriority_job_alloy_drone value = @SdjConstTemplate1_job_alloy_drone }
+					set_variable = { which = SdjVarJobPriority_job_chemist_drone value = @SdjConstTemplate1_job_chemist_drone }
+					set_variable = { which = SdjVarJobPriority_job_translucer_drone value = @SdjConstTemplate1_job_translucer_drone }
+					set_variable = { which = SdjVarJobPriority_job_gas_refiner_drone value = @SdjConstTemplate1_job_gas_refiner_drone }
+					set_variable = { which = SdjVarJobPriority_job_patrol_drone value = @SdjConstTemplate1_job_patrol_drone }
+					set_variable = { which = SdjVarJobPriority_job_chronicle_drone value = @SdjConstTemplate1_job_chronicle_drone }
+					set_variable = { which = SdjVarJobPriority_job_crystal_mining_drone value = @SdjConstTemplate1_job_crystal_mining_drone }
+					set_variable = { which = SdjVarJobPriority_job_mote_harvesting_drone value = @SdjConstTemplate1_job_mote_harvesting_drone }
+					set_variable = { which = SdjVarJobPriority_job_gas_extraction_drone value = @SdjConstTemplate1_job_gas_extraction_drone }
+					set_variable = { which = SdjVarJobPriority_job_mining_drone value = @SdjConstTemplate1_job_mining_drone }
+					set_variable = { which = SdjVarJobPriority_job_agri_drone value = @SdjConstTemplate1_job_agri_drone }
+					set_variable = { which = SdjVarJobPriority_job_technician_drone value = @SdjConstTemplate1_job_technician_drone }
+					set_variable = { which = SdjVarJobPriority_job_maintenance_drone value = @SdjConstTemplate1_job_maintenance_drone }
+					set_variable = { which = SdjVarJobPriority_job_warrior_drone value = @SdjConstTemplate1_job_warrior_drone }
+					set_variable = { which = SdjVarJobPriority_job_underground_trade_worker value = @SdjConstTemplate1_job_underground_trade_worker }
+					set_variable = { which = SdjVarJobPriority_job_underground_contact_drone value = @SdjConstTemplate1_job_underground_contact_drone }
+					set_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher value = @SdjConstTemplate1_job_dimensional_portal_researcher }
+					set_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher_gestalt value = @SdjConstTemplate1_job_dimensional_portal_researcher_gestalt }
+				}
+			}
+
+			if = {
+				limit = { always = @SdjConstTemplate2Enabled }
+				### Set Flag to Strage of Template
+				if = {
+					limit = { NOT = { any_system_within_border = { has_star_flag = SdjFlagSystemTemplateSavedOn2_@root } } }
+					random_system_within_border = {
+						limit = { NOT = { has_star_flag = SdjFlagSystemAnyTemplateSavedOn } }
+						set_star_flag = SdjFlagSystemAnyTemplateSavedOn
+						set_star_flag = SdjFlagSystemTemplateSavedOn2_@prev
+					}
+				}
+
+				random_system_within_border = {
+					limit = { has_star_flag = SdjFlagSystemTemplateSavedOn2_@prev }
+					set_variable = { which = SdjVarJobPriority_job_criminal value = @SdjConstTemplate2_job_criminal }
+					set_variable = { which = SdjVarJobPriority_job_deviant_drone value = @SdjConstTemplate2_job_deviant_drone }
+					set_variable = { which = SdjVarJobPriority_job_corrupt_drone value = @SdjConstTemplate2_job_corrupt_drone }
+					set_variable = { which = SdjVarJobPriority_job_head_researcher value = @SdjConstTemplate2_job_head_researcher }
+					set_variable = { which = SdjVarJobPriority_job_high_priest value = @SdjConstTemplate2_job_high_priest }
+					set_variable = { which = SdjVarJobPriority_job_politician value = @SdjConstTemplate2_job_politician }
+					set_variable = { which = SdjVarJobPriority_job_noble value = @SdjConstTemplate2_job_noble }
+					set_variable = { which = SdjVarJobPriority_job_merchant value = @SdjConstTemplate2_job_merchant }
+					set_variable = { which = SdjVarJobPriority_job_executive value = @SdjConstTemplate2_job_executive }
+					set_variable = { which = SdjVarJobPriority_job_knight_commander value = @SdjConstTemplate2_job_knight_commander }
+					set_variable = { which = SdjVarJobPriority_job_colonist value = @SdjConstTemplate2_job_colonist }
+					set_variable = { which = SdjVarJobPriority_job_researcher value = @SdjConstTemplate2_job_researcher }
+					set_variable = { which = SdjVarJobPriority_job_priest value = @SdjConstTemplate2_job_priest }
+					set_variable = { which = SdjVarJobPriority_job_death_priest value = @SdjConstTemplate2_job_death_priest }
+					set_variable = { which = SdjVarJobPriority_job_foundry value = @SdjConstTemplate2_job_foundry }
+					set_variable = { which = SdjVarJobPriority_job_enforcer value = @SdjConstTemplate2_job_enforcer }
+					set_variable = { which = SdjVarJobPriority_job_telepath value = @SdjConstTemplate2_job_telepath }
+					set_variable = { which = SdjVarJobPriority_job_artisan value = @SdjConstTemplate2_job_artisan }
+					set_variable = { which = SdjVarJobPriority_job_entertainer value = @SdjConstTemplate2_job_entertainer }
+					set_variable = { which = SdjVarJobPriority_job_duelist value = @SdjConstTemplate2_job_duelist }
+					set_variable = { which = SdjVarJobPriority_job_culture_worker value = @SdjConstTemplate2_job_culture_worker }
+					set_variable = { which = SdjVarJobPriority_job_politician value = @SdjConstTemplate2_job_politician }
+					set_variable = { which = SdjVarJobPriority_job_chemist value = @SdjConstTemplate2_job_chemist }
+					set_variable = { which = SdjVarJobPriority_job_translucer value = @SdjConstTemplate2_job_translucer }
+					set_variable = { which = SdjVarJobPriority_job_gas_refiner value = @SdjConstTemplate2_job_gas_refiner }
+					set_variable = { which = SdjVarJobPriority_job_roboticist value = @SdjConstTemplate2_job_roboticist }
+					set_variable = { which = SdjVarJobPriority_job_healthcare value = @SdjConstTemplate2_job_healthcare }
+					set_variable = { which = SdjVarJobPriority_job_manager value = @SdjConstTemplate2_job_manager }
+					set_variable = { which = SdjVarJobPriority_job_necromancer value = @SdjConstTemplate2_job_necromancer }
+					set_variable = { which = SdjVarJobPriority_job_death_chronicler value = @SdjConstTemplate2_job_death_chronicler }
+					set_variable = { which = SdjVarJobPriority_job_necro_apprentice value = @SdjConstTemplate2_job_necro_apprentice }
+					set_variable = { which = SdjVarJobPriority_job_clerk value = @SdjConstTemplate2_job_clerk }
+					set_variable = { which = SdjVarJobPriority_job_technician value = @SdjConstTemplate2_job_technician }
+					set_variable = { which = SdjVarJobPriority_job_miner value = @SdjConstTemplate2_job_miner }
+					set_variable = { which = SdjVarJobPriority_job_crystal_miner value = @SdjConstTemplate2_job_crystal_miner }
+					set_variable = { which = SdjVarJobPriority_job_gas_extractor value = @SdjConstTemplate2_job_gas_extractor }
+					set_variable = { which = SdjVarJobPriority_job_mote_harvester value = @SdjConstTemplate2_job_mote_harvester }
+					set_variable = { which = SdjVarJobPriority_job_farmer value = @SdjConstTemplate2_job_farmer }
+					set_variable = { which = SdjVarJobPriority_job_soldier value = @SdjConstTemplate2_job_soldier }
+					set_variable = { which = SdjVarJobPriority_job_preacher value = @SdjConstTemplate2_job_preacher }
+					set_variable = { which = SdjVarJobPriority_job_mortal_initiate value = @SdjConstTemplate2_job_mortal_initiate }
+					set_variable = { which = SdjVarJobPriority_job_spawning_drone value = @SdjConstTemplate2_job_spawning_drone }
+					set_variable = { which = SdjVarJobPriority_job_replicator value = @SdjConstTemplate2_job_replicator }
+					set_variable = { which = SdjVarJobPriority_job_coordinator value = @SdjConstTemplate2_job_coordinator }
+					set_variable = { which = SdjVarJobPriority_job_evaluator value = @SdjConstTemplate2_job_evaluator }
+					set_variable = { which = SdjVarJobPriority_job_synapse_drone value = @SdjConstTemplate2_job_synapse_drone }
+					set_variable = { which = SdjVarJobPriority_job_brain_drone value = @SdjConstTemplate2_job_brain_drone }
+					set_variable = { which = SdjVarJobPriority_job_calculator value = @SdjConstTemplate2_job_calculator }
+					set_variable = { which = SdjVarJobPriority_job_artisan_drone value = @SdjConstTemplate2_job_artisan_drone }
+					set_variable = { which = SdjVarJobPriority_job_fabricator value = @SdjConstTemplate2_job_fabricator }
+					set_variable = { which = SdjVarJobPriority_job_alloy_drone value = @SdjConstTemplate2_job_alloy_drone }
+					set_variable = { which = SdjVarJobPriority_job_chemist_drone value = @SdjConstTemplate2_job_chemist_drone }
+					set_variable = { which = SdjVarJobPriority_job_translucer_drone value = @SdjConstTemplate2_job_translucer_drone }
+					set_variable = { which = SdjVarJobPriority_job_gas_refiner_drone value = @SdjConstTemplate2_job_gas_refiner_drone }
+					set_variable = { which = SdjVarJobPriority_job_patrol_drone value = @SdjConstTemplate2_job_patrol_drone }
+					set_variable = { which = SdjVarJobPriority_job_chronicle_drone value = @SdjConstTemplate2_job_chronicle_drone }
+					set_variable = { which = SdjVarJobPriority_job_crystal_mining_drone value = @SdjConstTemplate2_job_crystal_mining_drone }
+					set_variable = { which = SdjVarJobPriority_job_mote_harvesting_drone value = @SdjConstTemplate2_job_mote_harvesting_drone }
+					set_variable = { which = SdjVarJobPriority_job_gas_extraction_drone value = @SdjConstTemplate2_job_gas_extraction_drone }
+					set_variable = { which = SdjVarJobPriority_job_mining_drone value = @SdjConstTemplate2_job_mining_drone }
+					set_variable = { which = SdjVarJobPriority_job_agri_drone value = @SdjConstTemplate2_job_agri_drone }
+					set_variable = { which = SdjVarJobPriority_job_technician_drone value = @SdjConstTemplate2_job_technician_drone }
+					set_variable = { which = SdjVarJobPriority_job_maintenance_drone value = @SdjConstTemplate2_job_maintenance_drone }
+					set_variable = { which = SdjVarJobPriority_job_warrior_drone value = @SdjConstTemplate2_job_warrior_drone }
+					set_variable = { which = SdjVarJobPriority_job_underground_trade_worker value = @SdjConstTemplate2_job_underground_trade_worker }
+					set_variable = { which = SdjVarJobPriority_job_underground_contact_drone value = @SdjConstTemplate2_job_underground_contact_drone }
+					set_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher value = @SdjConstTemplate2_job_dimensional_portal_researcher }
+					set_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher_gestalt value = @SdjConstTemplate2_job_dimensional_portal_researcher_gestalt }
+				}
+			}
+
+			if = {
+				limit = { always = @SdjConstTemplate3Enabled }
+				### Set Flag to Strage of Template
+				if = {
+					limit = { NOT = { any_system_within_border = { has_star_flag = SdjFlagSystemTemplateSavedOn3_@root } } }
+					random_system_within_border = {
+						limit = { NOT = { has_star_flag = SdjFlagSystemAnyTemplateSavedOn } }
+						set_star_flag = SdjFlagSystemAnyTemplateSavedOn
+						set_star_flag = SdjFlagSystemTemplateSavedOn3_@prev
+					}
+				}
+
+				random_system_within_border = {
+					limit = { has_star_flag = SdjFlagSystemTemplateSavedOn3_@prev }
+					set_variable = { which = SdjVarJobPriority_job_criminal value = @SdjConstTemplate3_job_criminal }
+					set_variable = { which = SdjVarJobPriority_job_deviant_drone value = @SdjConstTemplate3_job_deviant_drone }
+					set_variable = { which = SdjVarJobPriority_job_corrupt_drone value = @SdjConstTemplate3_job_corrupt_drone }
+					set_variable = { which = SdjVarJobPriority_job_head_researcher value = @SdjConstTemplate3_job_head_researcher }
+					set_variable = { which = SdjVarJobPriority_job_high_priest value = @SdjConstTemplate3_job_high_priest }
+					set_variable = { which = SdjVarJobPriority_job_politician value = @SdjConstTemplate3_job_politician }
+					set_variable = { which = SdjVarJobPriority_job_noble value = @SdjConstTemplate3_job_noble }
+					set_variable = { which = SdjVarJobPriority_job_merchant value = @SdjConstTemplate3_job_merchant }
+					set_variable = { which = SdjVarJobPriority_job_executive value = @SdjConstTemplate3_job_executive }
+					set_variable = { which = SdjVarJobPriority_job_knight_commander value = @SdjConstTemplate3_job_knight_commander }
+					set_variable = { which = SdjVarJobPriority_job_colonist value = @SdjConstTemplate3_job_colonist }
+					set_variable = { which = SdjVarJobPriority_job_researcher value = @SdjConstTemplate3_job_researcher }
+					set_variable = { which = SdjVarJobPriority_job_priest value = @SdjConstTemplate3_job_priest }
+					set_variable = { which = SdjVarJobPriority_job_death_priest value = @SdjConstTemplate3_job_death_priest }
+					set_variable = { which = SdjVarJobPriority_job_foundry value = @SdjConstTemplate3_job_foundry }
+					set_variable = { which = SdjVarJobPriority_job_enforcer value = @SdjConstTemplate3_job_enforcer }
+					set_variable = { which = SdjVarJobPriority_job_telepath value = @SdjConstTemplate3_job_telepath }
+					set_variable = { which = SdjVarJobPriority_job_artisan value = @SdjConstTemplate3_job_artisan }
+					set_variable = { which = SdjVarJobPriority_job_entertainer value = @SdjConstTemplate3_job_entertainer }
+					set_variable = { which = SdjVarJobPriority_job_duelist value = @SdjConstTemplate3_job_duelist }
+					set_variable = { which = SdjVarJobPriority_job_culture_worker value = @SdjConstTemplate3_job_culture_worker }
+					set_variable = { which = SdjVarJobPriority_job_politician value = @SdjConstTemplate3_job_politician }
+					set_variable = { which = SdjVarJobPriority_job_chemist value = @SdjConstTemplate3_job_chemist }
+					set_variable = { which = SdjVarJobPriority_job_translucer value = @SdjConstTemplate3_job_translucer }
+					set_variable = { which = SdjVarJobPriority_job_gas_refiner value = @SdjConstTemplate3_job_gas_refiner }
+					set_variable = { which = SdjVarJobPriority_job_roboticist value = @SdjConstTemplate3_job_roboticist }
+					set_variable = { which = SdjVarJobPriority_job_healthcare value = @SdjConstTemplate3_job_healthcare }
+					set_variable = { which = SdjVarJobPriority_job_manager value = @SdjConstTemplate3_job_manager }
+					set_variable = { which = SdjVarJobPriority_job_necromancer value = @SdjConstTemplate3_job_necromancer }
+					set_variable = { which = SdjVarJobPriority_job_death_chronicler value = @SdjConstTemplate3_job_death_chronicler }
+					set_variable = { which = SdjVarJobPriority_job_necro_apprentice value = @SdjConstTemplate3_job_necro_apprentice }
+					set_variable = { which = SdjVarJobPriority_job_clerk value = @SdjConstTemplate3_job_clerk }
+					set_variable = { which = SdjVarJobPriority_job_technician value = @SdjConstTemplate3_job_technician }
+					set_variable = { which = SdjVarJobPriority_job_miner value = @SdjConstTemplate3_job_miner }
+					set_variable = { which = SdjVarJobPriority_job_crystal_miner value = @SdjConstTemplate3_job_crystal_miner }
+					set_variable = { which = SdjVarJobPriority_job_gas_extractor value = @SdjConstTemplate3_job_gas_extractor }
+					set_variable = { which = SdjVarJobPriority_job_mote_harvester value = @SdjConstTemplate3_job_mote_harvester }
+					set_variable = { which = SdjVarJobPriority_job_farmer value = @SdjConstTemplate3_job_farmer }
+					set_variable = { which = SdjVarJobPriority_job_soldier value = @SdjConstTemplate3_job_soldier }
+					set_variable = { which = SdjVarJobPriority_job_preacher value = @SdjConstTemplate3_job_preacher }
+					set_variable = { which = SdjVarJobPriority_job_mortal_initiate value = @SdjConstTemplate3_job_mortal_initiate }
+					set_variable = { which = SdjVarJobPriority_job_spawning_drone value = @SdjConstTemplate3_job_spawning_drone }
+					set_variable = { which = SdjVarJobPriority_job_replicator value = @SdjConstTemplate3_job_replicator }
+					set_variable = { which = SdjVarJobPriority_job_coordinator value = @SdjConstTemplate3_job_coordinator }
+					set_variable = { which = SdjVarJobPriority_job_evaluator value = @SdjConstTemplate3_job_evaluator }
+					set_variable = { which = SdjVarJobPriority_job_synapse_drone value = @SdjConstTemplate3_job_synapse_drone }
+					set_variable = { which = SdjVarJobPriority_job_brain_drone value = @SdjConstTemplate3_job_brain_drone }
+					set_variable = { which = SdjVarJobPriority_job_calculator value = @SdjConstTemplate3_job_calculator }
+					set_variable = { which = SdjVarJobPriority_job_artisan_drone value = @SdjConstTemplate3_job_artisan_drone }
+					set_variable = { which = SdjVarJobPriority_job_fabricator value = @SdjConstTemplate3_job_fabricator }
+					set_variable = { which = SdjVarJobPriority_job_alloy_drone value = @SdjConstTemplate3_job_alloy_drone }
+					set_variable = { which = SdjVarJobPriority_job_chemist_drone value = @SdjConstTemplate3_job_chemist_drone }
+					set_variable = { which = SdjVarJobPriority_job_translucer_drone value = @SdjConstTemplate3_job_translucer_drone }
+					set_variable = { which = SdjVarJobPriority_job_gas_refiner_drone value = @SdjConstTemplate3_job_gas_refiner_drone }
+					set_variable = { which = SdjVarJobPriority_job_patrol_drone value = @SdjConstTemplate3_job_patrol_drone }
+					set_variable = { which = SdjVarJobPriority_job_chronicle_drone value = @SdjConstTemplate3_job_chronicle_drone }
+					set_variable = { which = SdjVarJobPriority_job_crystal_mining_drone value = @SdjConstTemplate3_job_crystal_mining_drone }
+					set_variable = { which = SdjVarJobPriority_job_mote_harvesting_drone value = @SdjConstTemplate3_job_mote_harvesting_drone }
+					set_variable = { which = SdjVarJobPriority_job_gas_extraction_drone value = @SdjConstTemplate3_job_gas_extraction_drone }
+					set_variable = { which = SdjVarJobPriority_job_mining_drone value = @SdjConstTemplate3_job_mining_drone }
+					set_variable = { which = SdjVarJobPriority_job_agri_drone value = @SdjConstTemplate3_job_agri_drone }
+					set_variable = { which = SdjVarJobPriority_job_technician_drone value = @SdjConstTemplate3_job_technician_drone }
+					set_variable = { which = SdjVarJobPriority_job_maintenance_drone value = @SdjConstTemplate3_job_maintenance_drone }
+					set_variable = { which = SdjVarJobPriority_job_warrior_drone value = @SdjConstTemplate3_job_warrior_drone }
+					set_variable = { which = SdjVarJobPriority_job_underground_trade_worker value = @SdjConstTemplate3_job_underground_trade_worker }
+					set_variable = { which = SdjVarJobPriority_job_underground_contact_drone value = @SdjConstTemplate3_job_underground_contact_drone }
+					set_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher value = @SdjConstTemplate3_job_dimensional_portal_researcher }
+					set_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher_gestalt value = @SdjConstTemplate3_job_dimensional_portal_researcher_gestalt }
+				}
+			}
+
+			# Convert vars
+			every_system_within_border = {
+				limit = {
+					has_star_flag = SdjFlagSystemAnyTemplateSavedOn
+					NOT = { has_star_flag = SdjFlagSystemTemplateSavedOn }
+				}
+				set_star_flag = SdjFlagSystemTemplateSavedOn
+				SdjEffectConvertJobPriority = { JOB = criminal }
+				SdjEffectConvertJobPriority = { JOB = deviant_drone }
+				SdjEffectConvertJobPriority = { JOB = corrupt_drone }
+				SdjEffectConvertJobPriority = { JOB = head_researcher }
+				SdjEffectConvertJobPriority = { JOB = high_priest }
+				SdjEffectConvertJobPriority = { JOB = politician }
+				SdjEffectConvertJobPriority = { JOB = noble }
+				SdjEffectConvertJobPriority = { JOB = merchant }
+				SdjEffectConvertJobPriority = { JOB = executive }
+				SdjEffectConvertJobPriority = { JOB = knight_commander }
+				SdjEffectConvertJobPriority = { JOB = colonist }
+				SdjEffectConvertJobPriority = { JOB = researcher }
+				SdjEffectConvertJobPriority = { JOB = priest }
+				SdjEffectConvertJobPriority = { JOB = death_priest }
+				SdjEffectConvertJobPriority = { JOB = foundry }
+				SdjEffectConvertJobPriority = { JOB = enforcer }
+				SdjEffectConvertJobPriority = { JOB = telepath }
+				SdjEffectConvertJobPriority = { JOB = artisan }
+				SdjEffectConvertJobPriority = { JOB = entertainer }
+				SdjEffectConvertJobPriority = { JOB = duelist }
+				SdjEffectConvertJobPriority = { JOB = culture_worker }
+				SdjEffectConvertJobPriority = { JOB = politician }
+				SdjEffectConvertJobPriority = { JOB = chemist }
+				SdjEffectConvertJobPriority = { JOB = translucer }
+				SdjEffectConvertJobPriority = { JOB = gas_refiner }
+				SdjEffectConvertJobPriority = { JOB = roboticist }
+				SdjEffectConvertJobPriority = { JOB = healthcare }
+				SdjEffectConvertJobPriority = { JOB = manager }
+				SdjEffectConvertJobPriority = { JOB = necromancer }
+				SdjEffectConvertJobPriority = { JOB = death_chronicler }
+				SdjEffectConvertJobPriority = { JOB = necro_apprentice }
+				SdjEffectConvertJobPriority = { JOB = clerk }
+				SdjEffectConvertJobPriority = { JOB = technician }
+				SdjEffectConvertJobPriority = { JOB = miner }
+				SdjEffectConvertJobPriority = { JOB = crystal_miner }
+				SdjEffectConvertJobPriority = { JOB = gas_extractor }
+				SdjEffectConvertJobPriority = { JOB = mote_harvester }
+				SdjEffectConvertJobPriority = { JOB = farmer }
+				SdjEffectConvertJobPriority = { JOB = soldier }
+				SdjEffectConvertJobPriority = { JOB = preacher }
+				SdjEffectConvertJobPriority = { JOB = mortal_initiate }
+				SdjEffectConvertJobPriority = { JOB = spawning_drone }
+				SdjEffectConvertJobPriority = { JOB = replicator }
+				SdjEffectConvertJobPriority = { JOB = coordinator }
+				SdjEffectConvertJobPriority = { JOB = evaluator }
+				SdjEffectConvertJobPriority = { JOB = synapse_drone }
+				SdjEffectConvertJobPriority = { JOB = brain_drone }
+				SdjEffectConvertJobPriority = { JOB = calculator }
+				SdjEffectConvertJobPriority = { JOB = artisan_drone }
+				SdjEffectConvertJobPriority = { JOB = fabricator }
+				SdjEffectConvertJobPriority = { JOB = alloy_drone }
+				SdjEffectConvertJobPriority = { JOB = chemist_drone }
+				SdjEffectConvertJobPriority = { JOB = translucer_drone }
+				SdjEffectConvertJobPriority = { JOB = gas_refiner_drone }
+				SdjEffectConvertJobPriority = { JOB = patrol_drone }
+				SdjEffectConvertJobPriority = { JOB = chronicle_drone }
+				SdjEffectConvertJobPriority = { JOB = crystal_mining_drone }
+				SdjEffectConvertJobPriority = { JOB = mote_harvesting_drone }
+				SdjEffectConvertJobPriority = { JOB = gas_extraction_drone }
+				SdjEffectConvertJobPriority = { JOB = mining_drone }
+				SdjEffectConvertJobPriority = { JOB = agri_drone }
+				SdjEffectConvertJobPriority = { JOB = technician_drone }
+				SdjEffectConvertJobPriority = { JOB = maintenance_drone }
+				SdjEffectConvertJobPriority = { JOB = warrior_drone }
+				SdjEffectConvertJobPriority = { JOB = underground_trade_worker }
+				SdjEffectConvertJobPriority = { JOB = underground_contact_drone }
+				SdjEffectConvertJobPriority = { JOB = dimensional_portal_researcher }
+				SdjEffectConvertJobPriority = { JOB = dimensional_portal_researcher_gestalt }
+			}
+		}
+	}
+}

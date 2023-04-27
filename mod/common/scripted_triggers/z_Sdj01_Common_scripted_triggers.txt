@@ -1,0 +1,89 @@
+
+#############################################
+#############################################
+#####									#####
+#####	Species Discrimination on Job	#####
+#####									#####
+#####	Common scripted_trigggers		#####
+#####									#####
+#############################################
+#############################################
+
+#############################
+###	Trigger for Country	###
+#############################
+#
+# Scope: this = country
+#
+
+SdjTriggerAvailableCountryRegular = {
+	is_ai = no
+	# is_country_type = default
+	is_gestalt = no # NOT = { has_ethic = ethic_gestalt_consciousness }
+}
+
+SdjTriggerAvailableCountryGestalt = {
+	is_ai = no
+	# is_country_type = default
+	is_gestalt = yes # has_ethic = ethic_gestalt_consciousness
+}
+# Deprecated Legacy
+# SdjTriggerAvailableCountryNpc = {
+# 	is_ai = yes
+# 	is_country_type = default
+# }
+
+###############################
+###	Check Living Standard	###
+###############################
+
+### Scope: this = pop
+SdjTriggerLivingStandardRank4 = {
+	OR = {
+		has_living_standard = { type = living_standard_chemical_bliss }
+		has_living_standard = { type = living_standard_utopian }
+		has_living_standard = { type = living_standard_shared_burden }
+	}
+}
+
+SdjTriggerLivingStandardRank3a = {
+	OR = {
+		has_living_standard = { type = living_standard_academic_privilege }
+		SdjTriggerLivingStandardRank3b = yes
+	}
+}
+
+SdjTriggerLivingStandardRank3b = {
+	has_living_standard = { type = living_standard_good }
+}
+
+SdjTriggerLivingStandardRank1 = {
+	OR = {
+		has_living_standard = { type = living_standard_stratified }
+		has_living_standard = { type = living_standard_subsistence }
+	}
+}
+
+SdjTriggerLivingStandardRank2 = {
+	SdjTriggerLivingStandardRank4 = no
+	SdjTriggerLivingStandardRank3b = no
+	SdjTriggerLivingStandardRank1 = no
+}
+
+# This = pop
+SdjTriggerJobPriorityN = {
+	planet = {
+		exists = owner
+		NAND = {
+			is_variable_set =  SdjVarJobPriority_job_$JOB$
+			check_variable = { which = SdjVarJobPriority_job_$JOB$ value < 0 }
+		}
+		NOR = {
+			has_planet_flag = SdjFlagEveryoneFired@owner
+			AND = {
+				prev.species = { has_species_flag = SdjFlagForbidden_job_$JOB$_@prev.owner }
+				NOT = { has_planet_flag = SdjFlagDeregulationOfJob@owner }
+			}
+		}
+	}
+}

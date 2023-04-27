@@ -1,0 +1,924 @@
+namespace = SdjEvent
+
+#####################################
+#####################################
+#####							#####
+#####	Job Priority Manager	#####
+#####							#####
+#####	Menu of Each Job		#####
+#####							#####
+#####################################
+#####################################
+
+country_event = {
+	id = SdjEvent.2013
+	title = "SdjEvent.2022.name"
+	desc = SdjEvent.2013.desc
+	picture = {
+		trigger = { is_gestalt = no }
+		picture = @SdjPictureRegularMenu
+	}
+	picture = {
+		trigger = {
+			is_gestalt = yes
+			is_hive_empire = yes
+		}
+		picture = @SdjPictureHiveMenu
+	}
+	picture = {
+		trigger = {
+			is_gestalt = yes
+			is_hive_empire = no
+		}
+		picture = @SdjPictureMachineMenu
+	}
+	is_triggered_only = yes
+
+	after = {
+		hidden_effect = {
+			####################################
+			###	Set Priorities for Every Job ###
+			####################################
+			# SdjEffectSetJobPriority = yes
+			# log = "SdjEffectSetJobPriority: Job Code = [This.SdjVarTargetJobCode], Dummy Priority = [SdjTargetCurrentConfigurated.SdjVarPriorityDummy]"
+			if = {
+				limit = {
+					check_variable = { which = SdjVarTargetJobCode value > 0.5 }
+					exists = event_target:SdjTargetCurrentConfigurated
+					event_target:SdjTargetCurrentConfigurated = { check_variable = { which = SdjVarPriorityDummy value > -1.5 } }
+				}
+				event_target:SdjTargetCurrentConfigurated = {
+					if = {
+						limit = {
+							prev = { has_country_flag = SdjFlagPlanetPriorityMenuOpened }
+							exists = owner
+							is_owned_by = prevprev
+						}
+						set_planet_flag = SdjFlagSetPriorityIndividually@owner
+						if = {
+							limit = {
+								owner = { is_gestalt = yes }
+								NOT = { has_modifier = SdjModifierSetPriorityIndividuallyGestalt }
+							}
+							add_modifier = { modifier = SdjModifierSetPriorityIndividuallyGestalt days = -1 }
+						} else_if = {
+							limit = {
+								NOR = {
+									owner = { is_gestalt = yes }
+									has_modifier = SdjModifierSetPriorityIndividuallyRegular
+								}
+							}
+							add_modifier = { modifier = SdjModifierSetPriorityIndividuallyRegular days = -1 }
+						}
+					}
+				}
+
+				if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_criminal } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_deviant_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_corrupt_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_corrupt_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_head_researcher } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_head_researcher value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_high_priest } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_high_priest value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_politician } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_politician value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_noble } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_noble value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_merchant } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_merchant value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_executive } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_executive value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_knight_commander } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_knight_commander value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_colonist } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_colonist value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_researcher } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_researcher value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_priest } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_priest value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_death_priest } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_death_priest value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_foundry } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_foundry value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_enforcer } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_enforcer value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_telepath } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_telepath value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_artisan } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_artisan value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_entertainer } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_entertainer value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_duelist } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_duelist value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_culture_worker } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_culture_worker value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_bureaucrat } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_bureaucrat value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_chemist } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_chemist value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_translucer } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_translucer value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_gas_refiner } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_gas_refiner value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_roboticist } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_roboticist value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_healthcare } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_healthcare value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_manager } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_manager value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_necromancer } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_necromancer value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_death_chronicler } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_death_chronicler value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_necro_apprentice } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_necro_apprentice value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_clerk } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_clerk value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_technician } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_technician value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_miner } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_miner value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_crystal_miner } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_crystal_miner value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_gas_extractor } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_gas_extractor value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_mote_harvester } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_mote_harvester value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_farmer } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_farmer value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_soldier } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_soldier value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_preacher } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_preacher value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_mortal_initiate } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_mortal_initiate value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_spawning_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_spawning_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_replicator } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_replicator value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_coordinator } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_coordinator value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_evaluator } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_evaluator value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_synapse_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_synapse_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_brain_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_brain_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_calculator } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_calculator value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_artisan_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_artisan_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_fabricator } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_fabricator value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_alloy_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_alloy_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_chemist_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_chemist_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_translucer_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_translucer_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_gas_refiner_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_gas_refiner_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_patrol_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_patrol_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_chronicle_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_chronicle_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_crystal_mining_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_crystal_mining_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_mote_harvesting_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_mote_harvesting_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_gas_extraction_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_gas_extraction_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_mining_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_mining_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_agri_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_agri_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_technician_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_technician_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_maintenance_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_maintenance_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_warrior_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_warrior_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_underground_trade_worker } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_underground_trade_worker value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_underground_contact_drone } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_underground_contact_drone value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_dimensional_portal_researcher } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstJobCode_job_dimensional_portal_researcher_gestalt } }
+					event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher_gestalt value = SdjVarPriorityDummy } }
+				} else_if = {
+					limit = { check_variable = { which = SdjVarTargetJobCode value > 999.5 } }
+					# SdjEffectSetCategoryAllJobPriority = yes
+					if = {
+						limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstCatCode_pop_cat_ruler } }
+						event_target:SdjTargetCurrentConfigurated = {
+							set_variable = { which = SdjVarJobPriority_job_head_researcher value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_high_priest value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_politician value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_noble value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_merchant value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_executive value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_knight_commander value = SdjVarPriorityDummy }
+						}
+					} else_if = {
+						limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstCatCode_pop_cat_specialist } }
+						event_target:SdjTargetCurrentConfigurated = {
+							set_variable = { which = SdjVarJobPriority_job_colonist value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_researcher value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_priest value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_death_priest value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_foundry value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_enforcer value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_telepath value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_artisan value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_entertainer value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_duelist value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_culture_worker value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_politician value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_chemist value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_translucer value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_gas_refiner value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_roboticist value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_healthcare value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_manager value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_underground_trade_worker value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_necromancer value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_death_chronicler value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_necro_apprentice value = SdjVarPriorityDummy }
+						}
+					} else_if = {
+						limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstCatCode_pop_cat_worker } }
+						event_target:SdjTargetCurrentConfigurated = {
+							set_variable = { which = SdjVarJobPriority_job_clerk value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_technician value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_miner value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_crystal_miner value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_gas_extractor value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_mote_harvester value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_farmer value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_soldier value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_preacher value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_mortal_initiate value = SdjVarPriorityDummy }
+						}
+					} else_if = {
+						limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstCatCode_pop_cat_complex_drone } }
+						event_target:SdjTargetCurrentConfigurated = {
+							set_variable = { which = SdjVarJobPriority_job_spawning_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_replicator value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_coordinator value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_evaluator value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_synapse_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_brain_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_calculator value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_artisan_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_fabricator value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_alloy_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_chemist_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_translucer_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_gas_refiner_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_patrol_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_chronicle_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher_gestalt value = SdjVarPriorityDummy }
+						}
+					} else_if = {
+						limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstCatCode_pop_cat_simple_drone } }
+						event_target:SdjTargetCurrentConfigurated = {
+							set_variable = { which = SdjVarJobPriority_job_crystal_mining_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_mote_harvesting_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_gas_extraction_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_mining_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_agri_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_technician_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_maintenance_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_warrior_drone value = SdjVarPriorityDummy }
+							set_variable = { which = SdjVarJobPriority_job_underground_contact_drone value = SdjVarPriorityDummy }
+						}
+					} else_if = {
+						limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstCatCode_pop_cat_criminal } }
+						event_target:SdjTargetCurrentConfigurated = {
+							set_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarPriorityDummy }
+						}
+					} else_if = {
+						limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstCatCode_pop_cat_deviant_drone } }
+						event_target:SdjTargetCurrentConfigurated = {
+							set_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarPriorityDummy }
+						}
+					} else_if = {
+						limit = { check_variable = { which = SdjVarTargetJobCode value = @SdjConstCatCode_pop_cat_corrupt_drone } }
+						event_target:SdjTargetCurrentConfigurated = {
+							set_variable = { which = SdjVarJobPriority_job_corrupt_drone value = SdjVarPriorityDummy }
+						}
+					}
+					# } else = { log = "Invalid Job Code Specified in SdjEffectSetJobPriorityCountry: [This.SdjVarTargetJobCode]" }
+				}
+				# } else = { log = "Invalid Job Code Specified in SdjEffectSetJobPriorityCountry: [This.SdjVarTargetJobCode]" }
+			}
+
+			###################################
+			###	Priority of Criminal Jobs	###
+			###################################
+			#
+			# Scopes: this = country/planet, root = country
+			#
+			# Max[ Default, Ave(Standard Worker)+1, Ave(Standard Specialist)-1 } ]
+			# Max[ Default, Ave(Standard Simple Drone)+1, Ave(Standard Complex Drone)-1 } ]
+			# 'Standard' means jobs having standard priorities of the categories in vanilla.
+			# Forbidden jobs are considered as priority 1.
+			# A fraction is round up to integer.
+			# SdjEffectSetCriminalPriority = yes
+			if = {
+				limit = { exists = event_target:SdjTargetCurrentConfigurated }
+				event_target:SdjTargetCurrentConfigurated = {
+					set_variable = { which = SdjVarJobPriority_job_criminal value = 0 }
+					set_variable = { which = SdjVarJobPriority_job_deviant_drone value = 0 }
+					# set_variable = { which = SdjVarJobPriority_job_corrupt_drone value = 0 }
+
+					### Check Priorities of Specialist and Complex Drone
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_researcher value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_researcher value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_researcher } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_priest value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_priest value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_priest } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_death_priest value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_death_priest value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_death_priest } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_foundry value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_foundry value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_foundry } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_enforcer value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_enforcer value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_enforcer } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_telepath value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_telepath value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_telepath } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_artisan value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_artisan value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_artisan } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_entertainer value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_entertainer value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_entertainer } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_duelist value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_duelist value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_duelist } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_culture_worker value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_culture_worker value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_culture_worker } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_politician value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_politician value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_politician } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_chemist value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_chemist value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_chemist } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_translucer value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_translucer value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_translucer } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_gas_refiner value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_gas_refiner value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_gas_refiner } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_roboticist value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_roboticist value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_roboticist } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_healthcare value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_healthcare value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_healthcare } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_manager value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_manager value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_manager } }
+								if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_necromancer value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_necromancer value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_necromancer } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_death_chronicler value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_death_chronicler value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_death_chronicler } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_necro_apprentice value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_necro_apprentice value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_necro_apprentice } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_brain_drone value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_brain_drone value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarJobPriority_job_brain_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_calculator value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_calculator value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarJobPriority_job_calculator } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_artisan_drone value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_artisan_drone value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarJobPriority_job_artisan_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_fabricator value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_fabricator value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarJobPriority_job_fabricator } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_alloy_drone value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_alloy_drone value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarJobPriority_job_alloy_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_chemist_drone value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_chemist_drone value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarJobPriority_job_chemist_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_translucer_drone value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_translucer_drone value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarJobPriority_job_translucer_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_gas_refiner_drone value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_gas_refiner_drone value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarJobPriority_job_gas_refiner_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_patrol_drone value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_patrol_drone value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarJobPriority_job_patrol_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_chronicle_drone value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_chronicle_drone value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarJobPriority_job_chronicle_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_underground_trade_worker value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_underground_trade_worker value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_underground_trade_worker } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarJobPriority_job_dimensional_portal_researcher } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher_gestalt value < 0 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_dimensional_portal_researcher_gestalt value < 0.5 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = 4 }
+					} else = { change_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarJobPriority_job_dimensional_portal_researcher_gestalt } }
+
+					divide_variable = { which = SdjVarJobPriority_job_criminal value = 17 }
+					divide_variable = { which = SdjVarJobPriority_job_deviant_drone value = 10 }
+					change_variable = { which = SdjVarJobPriority_job_criminal value = -1 }
+					change_variable = { which = SdjVarJobPriority_job_deviant_drone value = -1 }
+
+					### Check Priorities of Worker and Simple Drone
+					set_variable = { which = SdjVarPriorityDummy_job_criminal value = 0 }
+					set_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 0 }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_clerk value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_clerk value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_criminal value = SdjVarJobPriority_job_clerk } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_technician value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_technician value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_criminal value = SdjVarJobPriority_job_technician } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_miner value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_miner value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_criminal value = SdjVarJobPriority_job_miner } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_crystal_miner value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_crystal_miner value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_criminal value = SdjVarJobPriority_job_crystal_miner } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_gas_extractor value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_gas_extractor value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_criminal value = SdjVarJobPriority_job_gas_extractor } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_mote_harvester value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_mote_harvester value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_criminal value = SdjVarJobPriority_job_mote_harvester } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_farmer value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_farmer value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_criminal value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_criminal value = SdjVarJobPriority_job_farmer } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_crystal_mining_drone value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_crystal_mining_drone value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = SdjVarJobPriority_job_crystal_mining_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_mote_harvesting_drone value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_mote_harvesting_drone value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = SdjVarJobPriority_job_mote_harvesting_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_gas_extraction_drone value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_gas_extraction_drone value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = SdjVarJobPriority_job_gas_extraction_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_mining_drone value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_mining_drone value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = SdjVarJobPriority_job_mining_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_agri_drone value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_agri_drone value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = SdjVarJobPriority_job_agri_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_technician_drone value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_technician_drone value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = SdjVarJobPriority_job_technician_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_maintenance_drone value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_maintenance_drone value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = SdjVarJobPriority_job_maintenance_drone } }
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_underground_contact_drone value < 0 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 1 }
+					} else_if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_underground_contact_drone value < 0.5 } }
+						change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 2 }
+					} else = { change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = SdjVarJobPriority_job_underground_contact_drone } }
+					divide_variable = { which = SdjVarPriorityDummy_job_criminal value = 7 }
+					divide_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 8 }
+					change_variable = { which = SdjVarPriorityDummy_job_criminal value = 1 }
+					change_variable = { which = SdjVarPriorityDummy_job_deviant_drone value = 1 }
+
+					if = {
+						limit = { check_variable = { which = SdjVarPriorityDummy_job_criminal value > SdjVarJobPriority_job_criminal } }
+						set_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarPriorityDummy_job_criminal }
+					}
+					if = {
+						limit = { check_variable = { which = SdjVarPriorityDummy_job_deviant_drone value > SdjVarJobPriority_job_deviant_drone } }
+						set_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarPriorityDummy_job_deviant_drone }
+					}
+
+					# log = "SdjVarJobPriority_job_criminal		= [This.SdjVarJobPriority_job_criminal] (unchecked default value yet)"
+					# log = "SdjVarJobPriority_job_deviant_drone = [This.SdjVarJobPriority_job_deviant_drone] (unchecked default value yet)"
+
+					### Check Default Priority
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_criminal value < 3.5 } }
+						set_variable = { which = SdjVarJobPriority_job_criminal value = 0 }
+					}
+					if = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_criminal value < 3.5 } }
+						set_variable = { which = SdjVarJobPriority_job_deviant_drone value = 0 }
+					}
+					# log = "SdjVarJobPriority_job_criminal		= [This.SdjVarJobPriority_job_criminal] (Pre-Rounded-Up)"
+					# log = "SdjVarJobPriority_job_deviant_drone = [This.SdjVarJobPriority_job_deviant_drone] (Pre-Rounded-Up)"
+
+					### Round up
+					set_variable = { which = SdjVarPriorityDummy value = 0 }
+					while = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_criminal value > 0.01 } }
+						change_variable = { which = SdjVarJobPriority_job_criminal value = -1 }
+						change_variable = { which = SdjVarPriorityDummy value = 1 }
+					}
+					set_variable = { which = SdjVarJobPriority_job_criminal value = SdjVarPriorityDummy }
+					set_variable = { which = SdjVarPriorityDummy value = 0 }
+					SdjEffectConvertJobPriority = { JOB = criminal }
+					while = {
+						limit = { check_variable = { which = SdjVarJobPriority_job_deviant_drone value > 0.01 } }
+						change_variable = { which = SdjVarJobPriority_job_deviant_drone value = -1 }
+						change_variable = { which = SdjVarPriorityDummy value = 1 }
+					}
+					set_variable = { which = SdjVarJobPriority_job_deviant_drone value = SdjVarPriorityDummy }
+					SdjEffectConvertJobPriority = { JOB = deviant_drone }
+					set_variable = { which = SdjVarJobPriority_job_corrupt_drone value = SdjVarPriorityDummy }
+					set_variable = { which = SdjVarPriorityDummy value = 0 }
+					# log = "SdjVarJobPriority_job_criminal		= [This.SdjVarJobPriority_job_criminal] (Final Output)"
+					# log = "SdjVarJobPriority_job_deviant_drone = [This.SdjVarJobPriority_job_deviant_drone] (Final Output)"
+					# log = "SdjVarJobPriority_job_corrupt_drone = [This.SdjVarJobPriority_job_corrupt_drone] (Final Output)"
+				}
+			}
+			# } else = { log = "The scope of event_target:SdjTargetCurrentConfigurated is invalid in SdjEffectSetCriminalPriority" }
+
+			if = {
+				limit = { NOT = { has_country_flag = SdjFlagPlanetPriorityMenuOpened } }
+				every_owned_planet = {
+					limit = { NOT = { has_planet_flag = SdjFlagSetJobPriorityIndividually@prev } }
+					SdjEffectCopyPriorityConfiguration = yes
+				}
+			}
+			SdjEffectCopyEmpirePriorityToNpcs = yes
+			event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = 0 } }
+			if = {
+				limit = { check_variable = { which = SdjVarOpenedCategoryMenu value = 2110 } }
+				country_event = { id = SdjEvent.2110 }
+			} else_if = {
+				limit = { check_variable = { which = SdjVarOpenedCategoryMenu value = 2121 } }
+				country_event = { id = SdjEvent.2121 }
+			} else_if = {
+				limit = { check_variable = { which = SdjVarOpenedCategoryMenu value = 2122 } }
+				country_event = { id = SdjEvent.2122 }
+			} else_if = {
+				limit = { check_variable = { which = SdjVarOpenedCategoryMenu value = 2130 } }
+				country_event = { id = SdjEvent.2130 }
+			} else_if = {
+				limit = { check_variable = { which = SdjVarOpenedCategoryMenu value = 2210 } }
+				country_event = { id = SdjEvent.2210 }
+			} else_if = {
+				limit = { check_variable = { which = SdjVarOpenedCategoryMenu value = 2220 } }
+				country_event = { id = SdjEvent.2220 }
+			} else = { country_event = { id = SdjEvent.2011 } }
+		}
+	}
+
+	option = {
+		name = SdjTextKeepCurrent.name
+		custom_tooltip = SdjTextKeepCurrent.tooltip
+		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = -16 } } }
+	}
+
+	option = {
+		name = SdjOptionPriority0.name
+		custom_tooltip = SdjOptionPriority0.tooltip
+		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = 0 } } }
+	}
+
+	option = {
+		name = SdjTextSeparator.name
+		custom_tooltip = SdjTextSeparator.tooltip
+		allow = { always = no }
+	}
+
+	option = {
+		name = "SdjTextPriority9"
+		custom_tooltip = SdjOptionPriority9.tooltip
+		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = @SdjConstWeightModifier0To9 } } }
+	}
+	option = {
+		name = "SdjTextPriority8"
+		custom_tooltip = SdjOptionPriority8.tooltip
+		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = @SdjConstWeightModifier0To8 } } }
+	}
+
+	option = {
+		name = "SdjTextPriority7"
+		custom_tooltip = SdjOptionPriority7.tooltip
+		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = @SdjConstWeightModifier0To7 } } }
+	}
+
+	option = {
+		name = SdjTextSeparator.name
+		custom_tooltip = SdjTextSeparator.tooltip
+		allow = { always = no }
+	}
+
+	option = {
+		name = "SdjTextPriority6"
+		custom_tooltip = SdjOptionPriority6.tooltip
+		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = @SdjConstWeightModifier0To6 } } }
+	}
+	option = {
+		name = "SdjTextPriority5"
+		custom_tooltip = SdjOptionPriority5.tooltip
+		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = @SdjConstWeightModifier0To5 } } }
+	}
+
+	option = {
+		name = "SdjTextPriority4"
+		custom_tooltip = SdjOptionPriority4.tooltip
+		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = @SdjConstWeightModifier0To4 } } }
+	}
+	option = {
+		name = "SdjTextPriority3"
+		custom_tooltip = SdjOptionPriority3.tooltip
+		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = @SdjConstWeightModifier0To3 } } }
+	}
+
+	option = {
+		name = SdjTextSeparator.name
+		custom_tooltip = SdjTextSeparator.tooltip
+		allow = { always = no }
+	}
+
+	option = {
+		name = "SdjTextPriority2"
+		custom_tooltip = SdjOptionPriority2.tooltip
+		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = @SdjConstWeightModifier0To2 } } }
+	}
+	option = {
+		name = "SdjTextPriority1"
+		custom_tooltip = SdjOptionPriority1.tooltip
+		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = @SdjConstWeightModifier0To1 } } }
+	}
+	option = {
+		name = "SdjTextPriorityN"
+		custom_tooltip = SdjOptionPriorityN.tooltip
+		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = -1 } } }
+	}
+}
