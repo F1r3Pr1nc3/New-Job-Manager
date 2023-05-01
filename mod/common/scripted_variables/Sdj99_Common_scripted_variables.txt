@@ -13,10 +13,10 @@
 ###############################
 ###	Event Picture of Menu	###
 ###############################
-
-@SdjPictureRegularMenu = GFX_evt_alien_propaganda
-@SdjPictureHiveMenu = GFX_evt_hive_mind
-@SdjPictureMachineMenu = GFX_evt_machine_sapience
+# Removed in 3.8
+# @SdjPictureRegularMenu = GFX_evt_alien_propaganda
+# @SdjPictureHiveMenu = GFX_evt_hive_mind
+# @SdjPictureMachineMenu = GFX_evt_machine_sapience
 
 ###############
 ###	Dummy	###

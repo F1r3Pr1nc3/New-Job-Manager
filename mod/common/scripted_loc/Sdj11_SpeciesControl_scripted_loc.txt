@@ -357,7 +357,7 @@ defined_text = {
 #
 #	Scope: this = country
 #
-
+# Only used once
 defined_text = {
 	name = GetText_SdjGetSpeciesEdictTitle
 	text = {

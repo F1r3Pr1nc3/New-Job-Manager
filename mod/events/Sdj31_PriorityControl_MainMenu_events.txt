@@ -67,26 +67,10 @@ namespace = SdjEvent
 ### Check Trigger Condition
 country_event = {
 	id = SdjEvent.2011
-	title = "SdjEvent.2022.name"
 	desc = SdjEvent.2011.desc
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	is_triggered_only = yes
 	trigger = {
 		is_ai = no
@@ -356,7 +340,6 @@ country_event = {
 ### Additional Information
 country_event = {
 	id = SdjEvent.2021
-	title = "SdjEvent.2022.name"
 	desc = {
 		trigger = { is_gestalt = no }
 		text = SdjEvent.2021Reg.desc
@@ -367,24 +350,9 @@ country_event = {
 		text = SdjEvent.2021Ges1.desc
 		text = SdjEvent.2021Ges2.desc
 	}
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	is_triggered_only = yes
 
 	option = {
@@ -401,21 +369,15 @@ country_event = {
 	desc = SdjEvent.2022.desc
 	picture = {
 		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
+		picture = GFX_evt_alien_propaganda
 	}
 	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
+		trigger = { is_gestalt = yes is_hive_empire = yes }
+		picture = GFX_evt_hive_mind
 	}
 	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
+		trigger = { is_gestalt = yes is_hive_empire = no }
+		picture = GFX_evt_machine_sapience
 	}
 	is_triggered_only = yes
 

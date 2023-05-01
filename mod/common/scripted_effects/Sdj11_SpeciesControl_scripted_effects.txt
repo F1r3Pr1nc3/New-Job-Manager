@@ -19,19 +19,18 @@ SdjEffectDetectExpantionPatch = {
 ###	Common Effects for Menu	###
 #################################
 
-### Scopes: this = pop, root = country
-SdjEffectOpenSpeciesMenu = {
-	optimize_memory
-	save_event_target_as = SdjTargetPopA
-	species = { save_event_target_as = SdjTargetSpeciesA }
-	root = { country_event = { id = SdjEvent.1013 } }
-}
+### Scopes: this = pop, root = country (removed in 3.8)
+# SdjEffectOpenSpeciesMenu = {
+# 	optimize_memory
+# 	save_event_target_as = SdjTargetPopA
+# 	species = { save_event_target_as = SdjTargetSpeciesA }
+# 	root = { country_event = { id = SdjEvent.1013 } }
+# }
 
 ### Scopes: this = species, root = country
 SdjEffectSetFlagToSpeciesListedMenu = {
 	optimize_memory
-	if = {
-		limit = { SdjTriggerSubSpeciesModifiable = yes }
+	if = { limit = { SdjTriggerSubSpeciesModifiable = yes }
 		set_species_flag = CmtFlagSpeciesAlreadyListed@root
 	} else = {
 		root = {
@@ -138,24 +137,19 @@ CmtEffectListUpThisSpecies = {
 
 ### Scopes: this = Species, prev = Species, root = Country
 SdjEffectCopySpeciesJobRightCategory = {
-	if = {
-		limit = { prev = { has_species_flag = SdjFlagForbiddenSeparately_@root } }
+	if = { limit = { prev = { has_species_flag = SdjFlagForbiddenSeparately_@root } }
 		set_species_flag = SdjFlagForbiddenSeparately_@root
 	} else = { remove_species_flag = SdjFlagForbiddenSeparately_@root }
-	if = {
-		limit = { prev = { has_species_flag = SdjFlagForbiddenFinely_@root } }
+	if = { limit = { prev = { has_species_flag = SdjFlagForbiddenFinely_@root } }
 		set_species_flag = SdjFlagForbiddenFinely_@root
 	} else = { remove_species_flag = SdjFlagForbiddenFinely_@root }
-	if = {
-		limit = { prev = { has_species_flag = SdjFlagForbiddenRank3_@root } }
+	if = { limit = { prev = { has_species_flag = SdjFlagForbiddenRank3_@root } }
 		set_species_flag = SdjFlagForbiddenRank3_@root
 	} else = { remove_species_flag = SdjFlagForbiddenRank3_@root }
-	if = {
-		limit = { prev = { has_species_flag = SdjFlagForbiddenRank2_@root } }
+	if = { limit = { prev = { has_species_flag = SdjFlagForbiddenRank2_@root } }
 		set_species_flag = SdjFlagForbiddenRank2_@root
 	} else = { remove_species_flag = SdjFlagForbiddenRank2_@root }
-	if = {
-		limit = { prev = { has_species_flag = SdjFlagForbiddenRank1_@root } }
+	if = { limit = { prev = { has_species_flag = SdjFlagForbiddenRank1_@root } }
 		set_species_flag = SdjFlagForbiddenRank1_@root
 	} else = { remove_species_flag = SdjFlagForbiddenRank1_@root }
 }

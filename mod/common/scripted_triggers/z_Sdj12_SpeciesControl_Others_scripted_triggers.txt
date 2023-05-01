@@ -15,20 +15,28 @@
 #
 # scope: this = species, root = country
 #
-
-SdjTriggerSubSpeciesOriginallyModifiable = {
-	root = { SdjTriggerAvailableCountryGestalt = yes }
-	is_same_species = root.owner_species
-	OR = {
-		has_trait = trait_hive_mind
-		has_trait = trait_machine_unit
-	}
-}
+# Removed in 3.8 (only used 2 times)
+# SdjTriggerSubSpeciesOriginallyModifiable = {
+# 	root = { SdjTriggerAvailableCountryGestalt = yes }
+# 	is_same_species = root.owner_species
+# 	OR = {
+# 		has_trait = trait_hive_mind
+# 		has_trait = trait_machine_unit
+# 	}
+# }
 
 SdjTriggerSubSpeciesModifiable = {
 	OR = {
-		SdjTriggerSubSpeciesOriginallyModifiable = yes
 		has_species_flag = SdjFlagSubSpeciesModified_@root
+		# SdjTriggerSubSpeciesOriginallyModifiable = yes
+		AND = {
+			root = { SdjTriggerAvailableCountryGestalt = yes }
+			is_same_species = root.owner_species
+			OR = {
+				has_trait = trait_hive_mind
+				has_trait = trait_machine_unit
+			}
+		}
 	}
 }
 
@@ -55,7 +63,7 @@ SdjTriggerAvailableSpeciesMenu = {
 						has_technology = tech_robotic_workers
 					}
 				}
-				is_same_species = root.owner_species
+				# is_same_species = root.owner_species is handled on top!?
 				is_robotic = yes # has_trait = trait_mechanical
 			}
 		}
@@ -70,7 +78,7 @@ SdjTriggerAvailableSpeciesMenu = {
 				# 	has_trait = trait_machine_unit
 				# }
 				OR = {
-					is_same_species = root.owner_species
+					# is_same_species = root.owner_species is handled on top!?
 					has_citizenship_type = { type = citizenship_full country = root }
 					has_citizenship_type = { type = citizenship_full_machine country = root }
 				}

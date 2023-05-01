@@ -15,28 +15,9 @@ namespace = SdjEvent
 
 country_event = {
 	id = SdjEvent.1110
-	title = "SdjEvent.1011.name"
-	desc = "SdjEvent.1013.desc"
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1013
+	option_clear = yes
 	is_triggered_only = yes
-
 	after = {
 		hidden_effect = {
 			if = {

@@ -15,26 +15,10 @@ namespace = SdjEvent
 
 country_event = {
 	id = SdjEvent.2121
-	title = "SdjEvent.2022.name"
 	desc = "SdjEvent.2011.desc"
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	is_triggered_only = yes
 
 	immediate = {
@@ -232,26 +216,10 @@ country_event = {
 # Extend  SdjEvent.2121
 country_event = {
 	id = SdjEvent.2122
-	title = "SdjEvent.2022.name"
 	desc = "SdjEvent.2011.desc"
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	is_triggered_only = yes
 
 	immediate = {

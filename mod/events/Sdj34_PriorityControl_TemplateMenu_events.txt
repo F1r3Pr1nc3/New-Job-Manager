@@ -16,26 +16,10 @@ namespace = SdjEvent
 
 country_event = {
 	id = SdjEvent.2031
-	title = "SdjEvent.2022.name"
 	desc = SdjEvent.2031.desc
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	is_triggered_only = yes
 
 	after = {
@@ -71,26 +55,10 @@ country_event = {
 
 country_event = {
 	id = SdjEvent.2032
-	title = "SdjEvent.2022.name"
 	desc = SdjEvent.2032.desc
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	is_triggered_only = yes
 
 	after = {
@@ -126,26 +94,10 @@ country_event = {
 
 country_event = {
 	id = SdjEvent.2033
-	title = "SdjEvent.2022.name"
 	desc = SdjEvent.2033.desc
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	is_triggered_only = yes
 
 	after = {
@@ -185,7 +137,6 @@ country_event = {
 
 country_event = {		## Default (Vanilla)
 	id = SdjEvent.2040
-	title = "SdjEvent.2022.name"
 	desc = {
 		trigger = {
 			NAND = {
@@ -208,24 +159,9 @@ country_event = {		## Default (Vanilla)
 		}
 		text = SdjEvent.2040b.desc
 	}
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	is_triggered_only = yes
 
 	after = {
@@ -254,26 +190,10 @@ country_event = {		## Default (Vanilla)
 
 country_event = {
 	id = SdjEvent.2041
-	title = "SdjEvent.2022.name"
 	desc = SdjEvent.2041.desc
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	is_triggered_only = yes
 
 	after = {
@@ -305,26 +225,10 @@ country_event = {
 
 country_event = {
 	id = SdjEvent.2042
-	title = "SdjEvent.2022.name"
 	desc = SdjEvent.2042.desc
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	is_triggered_only = yes
 
 	after = {
@@ -356,26 +260,10 @@ country_event = {
 
 country_event = {
 	id = SdjEvent.2043
-	title = "SdjEvent.2022.name"
 	desc = SdjEvent.2043.desc
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	is_triggered_only = yes
 
 	after = {
@@ -408,26 +296,10 @@ country_event = {
 ### Empire Standard
 country_event = {
 	id = SdjEvent.2049
-	title = "SdjEvent.2022.name"
 	desc = SdjEvent.2049.desc
-	picture = {
-		trigger = { is_gestalt = no }
-		picture = @SdjPictureRegularMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = yes
-		}
-		picture = @SdjPictureHiveMenu
-	}
-	picture = {
-		trigger = {
-			is_gestalt = yes
-			is_hive_empire = no
-		}
-		picture = @SdjPictureMachineMenu
-	}
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	is_triggered_only = yes
 
 	option = {
