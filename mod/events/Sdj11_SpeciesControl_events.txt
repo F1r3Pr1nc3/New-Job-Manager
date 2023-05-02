@@ -83,32 +83,32 @@ country_event = {
 			owner_species = { SdjEffectSetFlagToSpeciesListedMenu = yes }
 		}
 		else = { set_variable = { which = SdjVarSpeciesTotalNum value = 0 } }
-
+		# Main sub-species
 		every_owned_pop_species = {
 			limit = {
-				SdjTriggerAvailableSpeciesMenu = yes
 				is_same_species = root.owner_species
 				NOT = { is_exact_same_species = root.owner_species }
+				SdjTriggerAvailableSpeciesMenu = yes
 			}
 			CmtEffectListUpThisSpecies = yes
 		}
+		# Mechanical
 		every_owned_pop_species = {
 			limit = {
-				SdjTriggerAvailableSpeciesMenu = yes
 				NOT = { is_same_species = root.owner_species }
-				is_robotic = yes # has_trait = trait_mechanical
-				# is_valid_pop_for_PLANET_KILLER_NANOBOTS = yes
+				is_robotic = yes # has_trait = trait_mechanical # is_valid_pop_for_PLANET_KILLER_NANOBOTS = no
+				SdjTriggerAvailableSpeciesMenu = yes
 			}
 			CmtEffectListUpThisSpecies = yes
 		}
 		# Ordered in sub-species
 		every_owned_pop_species = {
 			limit = {
-				SdjTriggerAvailableSpeciesMenu = yes
 				NOR = {
 					is_same_species = root.owner_species
 					is_robotic = yes # has_trait = trait_mechanical
 				}
+				SdjTriggerAvailableSpeciesMenu = yes
 			}
 			prev = {
 				every_owned_pop_species = {
@@ -316,6 +316,7 @@ country_event = {
 	option = {
 		name = SdjTextExit.name
 		custom_tooltip = SdjTextExit.tooltip
+		default_hide_option = yes
 		hidden_effect = {
 			remove_country_flag = SdjFlagSpeciesMenuOpened
 			every_owned_pop_species = { remove_species_flag = CmtFlagSpeciesAlreadyListed@root }
@@ -339,6 +340,7 @@ country_event = {		## Default Right
 	option = {
 		name = SdjTextKeepCurrent.name
 		custom_tooltip = SdjTextKeepCurrent.tooltip
+		default_hide_option = yes
 	}
 	option = {
 		name = SdjEvent.1012.321.name
@@ -459,6 +461,7 @@ country_event = {		## Right of Each Species
 	option = {
 		name = SdjTextKeepCurrent.name
 		custom_tooltip = SdjTextKeepCurrent.tooltip
+		default_hide_option = yes
 		hidden_effect = { country_event = { id = SdjEvent.1011 } }
 	}
 	option = {
@@ -872,6 +875,7 @@ country_event = {
 	option = {		## Cancel
 		name = SdjEvent.1019a.name
 		custom_tooltip = SdjEvent.1019a.tooltip
+		default_hide_option = yes
 	}
 	option = {		## OK
 		name = SdjEvent.1019b.name
@@ -908,6 +912,7 @@ country_event = {
 	option = {
 		name = "OK"
 		custom_tooltip = SdjEvent.1021a.tooltip
+		default_hide_option = yes
 	}
 	option = {
 		name = SdjEvent.1021b1.name
@@ -947,6 +952,7 @@ country_event = {
 	option = {
 		name = SdjEvent.1019a.name
 		custom_tooltip = SdjEvent.1022a.tooltip
+		default_hide_option = yes
 		hidden_effect = { country_event = { id = SdjEvent.1013 } }
 	}
 	option = {
@@ -990,6 +996,7 @@ country_event = {
 	option = {
 		name = SdjTextGoBack.name
 		custom_tooltip = SdjTextGoBack.tooltip
+		default_hide_option = yes
 	}
 	# option = {
 	# 	name = SdjTextSeparator.name

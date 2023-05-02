@@ -36,7 +36,7 @@ SdjDecisionCallPriorityMenuRegular = {
 			fail_text = SdjTextMenuOpenedNow
 			owner = {
 				NOR = {
-					has_country_flag = SdjFlagSpeciesMenuOpened
+					has_country_flag = SdjFlagPlanetPriorityMenuOpened
 					has_country_flag = SdjFlagPriorityMenuOpened
 				}
 			}
@@ -92,7 +92,7 @@ SdjDecisionCallPriorityMenuGestalt = {
 			fail_text = SdjTextMenuOpenedNow
 			owner = {
 				NOR = {
-					has_country_flag = SdjFlagSpeciesMenuOpened
+					has_country_flag = SdjFlagPlanetPriorityMenuOpened
 					has_country_flag = SdjFlagPriorityMenuOpened
 				}
 			}

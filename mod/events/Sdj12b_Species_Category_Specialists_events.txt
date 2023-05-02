@@ -16,7 +16,6 @@ namespace = SdjEvent
 country_event = {
 	id = SdjEvent.1121
 	base = SdjEvent.1013
-	desc_clear = yes
 	option_clear = yes
 	is_triggered_only = yes
 	after = {
@@ -30,6 +29,7 @@ country_event = {
 	option = {
 		name = SdjTextAccept.name
 		custom_tooltip = SdjTextAccept.tooltip
+		default_hide_option = yes
 		hidden_effect = { set_country_flag = SdjFlagSpMenu }
 	}
 	option = {
@@ -731,10 +731,10 @@ country_event = {
 			} else = { country_event = { id = SdjEvent.1122 } }
 		}
 	}
-
 	option = {
 		name = SdjTextAccept.name
 		custom_tooltip = SdjTextAccept.tooltip
+		default_hide_option = yes
 		hidden_effect = { set_country_flag = SdjFlagSpMenu }
 	}
 	option = {

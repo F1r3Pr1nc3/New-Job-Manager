@@ -333,6 +333,7 @@ country_event = {
 	option = {
 		name = SdjTextExit.name
 		custom_tooltip = SdjTextExit.tooltip
+		default_hide_option = yes
 		hidden_effect = { SdjEffectExitPriorityMenu = yes }
 	}
 }
@@ -358,6 +359,7 @@ country_event = {
 	option = {
 		name = SdjEvent.2021a.name
 		custom_tooltip = SdjEvent.2021a.tooltip
+		default_hide_option = yes
 		hidden_effect = { country_event = { id = SdjEvent.2011 } }
 	}
 }
@@ -388,6 +390,7 @@ country_event = {
 	option = {
 		name = SdjTextKeepCurrent.name
 		custom_tooltip = SdjTextKeepCurrent.tooltip
+		default_hide_option = yes
 	}
 
 	option = {

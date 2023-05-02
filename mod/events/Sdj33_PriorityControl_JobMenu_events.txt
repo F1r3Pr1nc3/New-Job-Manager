@@ -824,6 +824,7 @@ country_event = {
 	option = {
 		name = SdjTextKeepCurrent.name
 		custom_tooltip = SdjTextKeepCurrent.tooltip
+		default_hide_option = yes
 		hidden_effect = { event_target:SdjTargetCurrentConfigurated = { set_variable = { which = SdjVarPriorityDummy value = -16 } } }
 	}
 

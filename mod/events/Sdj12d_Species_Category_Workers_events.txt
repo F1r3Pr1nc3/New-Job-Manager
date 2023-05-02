@@ -27,10 +27,10 @@ country_event = {
 			} else = { country_event = { id = SdjEvent.1130 } }
 		}
 	}
-
 	option = {
 		name = SdjTextAccept.name
 		custom_tooltip = SdjTextAccept.tooltip
+		default_hide_option = yes
 		hidden_effect = { set_country_flag = SdjFlagSpMenu }
 	}
 	option = {

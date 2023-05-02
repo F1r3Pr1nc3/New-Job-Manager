@@ -273,6 +273,7 @@ country_event = {
 	option = {
 		name = "CANCEL"
 		custom_tooltip = SdjEvent.2043a.tooltip
+		default_hide_option = yes
 	}
 
 	option = {
@@ -305,6 +306,7 @@ country_event = {
 	option = {
 		name = "CANCEL"
 		custom_tooltip = SdjEvent.2049a.tooltip
+		default_hide_option = yes
 		hidden_effect = { country_event = { id = SdjEvent.2011 } }
 	}
 

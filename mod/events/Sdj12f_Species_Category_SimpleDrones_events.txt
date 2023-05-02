@@ -22,14 +22,13 @@ country_event = {
 			if = { limit = { has_country_flag = SdjFlagSpMenu }
 				remove_country_flag = SdjFlagSpMenu
 				country_event = { id = SdjEvent.1013 }
-			} else = {
-				country_event = { id = SdjEvent.1220 }
-			}
+			} else = { country_event = { id = SdjEvent.1220 } }
 		}
 	}
 	option = {
 		name = SdjTextAccept.name
 		custom_tooltip = SdjTextAccept.tooltip
+		default_hide_option = yes
 		hidden_effect = { set_country_flag = SdjFlagSpMenu }
 	}
 	option = {

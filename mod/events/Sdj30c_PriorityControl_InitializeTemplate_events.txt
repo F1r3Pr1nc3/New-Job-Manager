@@ -19,6 +19,13 @@ event = {
 		#################################################
 		every_playable_country = {
 			limit = { is_ai = no }
+			if = { limit = { has_country_flag = SdjFlagSpeciesMenuOpened }
+				remove_country_flag = SdjFlagSpeciesMenuOpened
+			}
+			if = { limit = { has_country_flag = SdjFlagPriorityMenuOpened }
+				SdjEffectExitPriorityMenu = yes
+			}
+
 			# SdjEffectInitializeTemplate = {
 			if = {
 				limit = { always = @SdjConstTemplate1Enabled }
