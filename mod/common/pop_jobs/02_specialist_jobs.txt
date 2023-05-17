@@ -84,6 +84,21 @@ researcher = {
 		SdjTriggerCheck_job_cat_specialist = yes
 		SdjTriggerJobPriorityN = { JOB = researcher }
 	}
+
+	triggered_pop_modifier = {
+		potential = {
+			planet = {
+				exists = army_leader
+				army_leader = {
+					has_trait = leader_trait_academia_recruiter
+				}
+			}
+		}
+		modifier = {
+			pop_defense_armies_add = 1
+		}
+	}
+
 	resources = {
 		category = planet_researchers
 		produces = {
@@ -166,8 +181,7 @@ xeno_zoo_keeper = {
 
 	triggered_planet_modifier = {
 		planet_amenities_add = 1
-		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
-		mult = value:zoo_keeper_output
+		mult = value:zoo_keeper_amenity_output
 	}
 
 	weight = {
@@ -398,7 +412,22 @@ enforcer = {
 		}
 	}
 
-	pop_modifier = { pop_defense_armies_add = 2 }
+	pop_modifier = {
+		pop_defense_armies_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				exists = ruler
+				ruler = {
+					has_trait = leader_trait_legendary_harsh_ruler
+				}
+			}
+		}
+		pop_happiness = -0.025
+	}
 
 	planet_modifier = {
 		planet_crime_add = -25
@@ -515,6 +544,19 @@ telepath = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
+			owner = {
+				exists = ruler
+				ruler = {
+					has_trait = leader_trait_legendary_harsh_ruler
+				}
+			}
+		}
+		pop_happiness = -0.025
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
 			owner = { has_country_flag = instrument_covenant_confirmed }
 		}
 		planet_amenities_add = 7
@@ -533,7 +575,9 @@ telepath = {
 			exists = owner
 			owner  = { has_tradition = tr_psionics_breach_shroud }
 		}
-		modifier = { planet_psionic_jobs_produces_mult = 0.05 }
+		modifier = {
+			planet_psionic_jobs_produces_mult = 0.05
+		}
 	}
 
 	triggered_planet_modifier = {
@@ -541,7 +585,9 @@ telepath = {
 			exists = planet
 			planet = { has_modifier = anticrime_campaign }
 		}
-		modifier = { planet_crime_add = -10 }
+		modifier = {
+			planet_crime_add = -10
+		}
 	}
 
 	triggered_planet_modifier = {
@@ -549,7 +595,17 @@ telepath = {
 			exists = owner
 			owner = { has_edict = thought_enforcement }
 		}
-		modifier = { planet_crime_add = -30 }
+		modifier = {
+			planet_crime_add = -30
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_councilor = { COUNCILOR = "councilor_psionic_sovereign" }
+		}
+		planet_psionic_jobs_produces_mult = 0.01
+		mult = value:councilor_level|TYPE|councilor_psionic_sovereign|
 	}
 
 	triggered_planet_modifier = {
@@ -557,7 +613,9 @@ telepath = {
 			exists = owner
 			owner = { has_country_flag = composer_covenant_confirmed }
 		}
-		modifier = { pop_growth_speed = 0.02 }
+		modifier = {
+			pop_growth_speed = 0.02
+		}
 	}
 
 	triggered_planet_modifier = {
@@ -630,6 +688,15 @@ entertainer = {
 		potential = { always = yes }
 		planet_amenities_add = 10
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_councilor = { COUNCILOR = "councilor_corporate_hedonism" }
+		}
+
+		trade_value_add = @councilor_corporate_hedonism_entertainer_trade_value
+		mult = value:scripted_modifier_councilor_level_mult|MODIFIER|pop_job_trade_mult|TYPE|councilor_corporate_hedonism|
 	}
 
 	triggered_planet_modifier = {
@@ -712,12 +779,34 @@ duelist = {
 	}
 
 	triggered_planet_modifier = {
-		potential = { always = yes }
+		potential = {
+			has_councilor = { COUNCILOR = "councilor_warrior_culture" } 
+		}
+
+		planet_amenities_add = 1
+		mult = value:scripted_modifier_councilor_level_mult|MODIFIER|pop_job_amenities_mult|TYPE|councilor_warrior_culture|
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			always = yes
+		}
 		planet_amenities_add = 10
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
-	country_modifier = { country_naval_cap_add = 2 }
+	triggered_country_modifier = { 
+		potential = {
+			has_councilor = { COUNCILOR = "councilor_warrior_culture" }
+		}
+
+		country_naval_cap_add = 0.2
+		mult = value:councilor_level|TYPE|councilor_warrior_culture|
+	}
+
+	country_modifier = {
+		country_naval_cap_add = 2
+	}
 
 	weight = {
 		weight = 1
@@ -1127,6 +1216,46 @@ roboticist = {
 		planet_pop_assembly_organic_add = 2.25
 	}
 
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				exists = ruler
+				ruler = {
+					has_trait = leader_trait_legendary_great_inventor
+				}
+			}
+		}
+		planet_amenities_add = 1
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				exists = ruler
+				ruler = {
+					has_trait = leader_trait_legendary_great_inventor_2
+				}
+			}
+		}
+		planet_amenities_add = 2
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				exists = ruler
+				ruler = {
+					has_trait = leader_trait_legendary_great_inventor_3
+				}
+			}
+		}
+		planet_amenities_add = 3
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
 	resources = {
 		category = planet_pop_assemblers
 		upkeep = { alloys = 2 }
@@ -1173,10 +1302,46 @@ healthcare = {
 	}
 
 	triggered_planet_modifier = {
-		potential = { always = yes }
+		potential = {
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_dystopian_society }
+			}
+		}
 		planet_amenities_add = 5
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_private_healthcare_corporate }
+		}
+		planet_amenities_add = 2
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_private_healthcare_corporate }
+		}
+		trade_value_add = 4
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
+	}
+	triggered_planet_modifier = {
+		potential = {
+			planet = { has_planet_flag = has_private_clinics }
+		}
+		planet_amenities_add = 1
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+	triggered_planet_modifier = {
+		potential = {
+			planet = { has_planet_flag = has_private_clinics }
+		}
+		trade_value_add = 2
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
+	}
+
 
 	weight = {
 		weight = 1
@@ -1313,7 +1478,19 @@ necromancer = {
 			physics_research = 6
 			society_research = 6
 		}
-		upkeep = { consumer_goods = 2 }
+		produces = {
+			trigger = {
+				exists = planet
+				planet = {
+					has_councilor = { COUNCILOR = "councilor_reanimated_armies" } 
+				}
+			}
+			unity = @councilor_reanimated_armies_necromancer_unity
+			mult = value:councilor_level|TYPE|councilor_reanimated_armies|
+		}
+		upkeep = {
+			consumer_goods = 2
+		}
 	}
 
 	possible_pre_triggers = {
@@ -1941,7 +2118,17 @@ pearl_diver = {
 
 	resources = {
 		category = planet_artisans
-		produces = { consumer_goods = 6 }
+		produces = {
+			consumer_goods = 6
+		}
+		produces = {
+			trigger = {
+				has_councilor = { COUNCILOR = "councilor_anglers" } 
+			}
+
+			consumer_goods = @councilor_anglers_pearl_diver_consumer_goods_bonus
+			mult = value:councilor_level|TYPE|councilor_anglers|
+		}
 		upkeep = {
 			food = 3
 			minerals = 4
@@ -1967,6 +2154,15 @@ pearl_diver = {
 			}
 			minerals = 1
 		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_councilor = { COUNCILOR = "councilor_corporate_anglers" } 
+		}
+
+		trade_value_add = @councilor_corporate_anglers_pearl_diver_trade_value_bonus
+		mult = value:scripted_modifier_councilor_level_mult|MODIFIER|pop_job_trade_mult|TYPE|councilor_corporate_anglers|
 	}
 
 	overlord_resources = {
@@ -2097,9 +2293,24 @@ bath_attendant = {
 
 	resources = {
 		category = planet_bath_attendants
-		upkeep = { consumer_goods = 1 }
+		upkeep = {
+			consumer_goods = 1
+		}
+		produces = {
+			trigger = {
+				exists = planet
+				planet = {
+					OR = {
+						has_councilor = { COUNCILOR = councilor_toxic_baths }
+						has_councilor = { COUNCILOR = councilor_corporate_toxic_baths }
+					}
+				}
 	}
 
+			unity = @councilor_toxic_baths_attendant_unity
+			mult = value:councilor_level_combo|COUNCILOR_1|councilor_toxic_baths|COUNCILOR_2|councilor_corporate_toxic_baths|
+		}
+	}
 	weight = {
 		weight = @specialist_job_weight
 		mult = value:job_weights_multiple_resources_modifier|JOB|artificer|RESOURCE1|consumer_goods|WEIGHT1|0.8|RESOURCE2|engineering_research|WEIGHT2|0.2|

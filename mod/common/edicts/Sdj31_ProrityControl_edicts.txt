@@ -14,7 +14,7 @@
 
 ### Regular Empire
 SdjEdictCallPriorityMenuRegular = {
-	length = 0
+	length = -1
 	icon = "GFX_edict_type_policy"
 
 	resources = {
@@ -42,7 +42,7 @@ SdjEdictCallPriorityMenuRegular = {
 
 ### Gestalt Empire
 SdjEdictCallPriorityMenuGestalt = {
-	length = 0
+	length = -1
 	icon = "GFX_edict_type_policy"
 
 	resources = {
