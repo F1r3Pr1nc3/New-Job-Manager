@@ -435,4 +435,6 @@ country_event = {
 		custom_tooltip = SdjTextExit.tooltip
 		hidden_effect = { set_variable = { which = SdjVarTargetJobCode value = -1 } }
 	}
+	abort_trigger = { NOT = { has_country_flag = SdjFlagPriorityMenuOpened } }
+	abort_effect = { SdjEffectExitPriorityMenu = yes }
 }

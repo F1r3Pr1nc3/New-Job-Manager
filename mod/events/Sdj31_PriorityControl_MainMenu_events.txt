@@ -91,18 +91,18 @@ country_event = {
 	option = {		## More Information
 		name = "SdjEvent.1011x.name"
 		custom_tooltip = SdjEvent.2011x.tooltip
-		hidden_effect = { country_event = { id = SdjEvent.2021 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2021 } } } country_event = { id = SdjEvent.2021 } } }
 	}
 	option = {
 		name = SdjEvent.2011b0.name		## Apply Default (Vanilla)
 		custom_tooltip = SdjEvent.2011b0.tooltip
-		hidden_effect = { country_event = { id = SdjEvent.2040 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2040 } } } country_event = { id = SdjEvent.2040 } } }
 	}
 	option = {
 		name = SdjEvent.2011b9.name		## Apply Country Standard
 		custom_tooltip = SdjEvent.2011b9.tooltip
 		trigger = { has_country_flag = SdjFlagPlanetPriorityMenuOpened }
-		hidden_effect = { country_event = { id = SdjEvent.2049 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2049 } } } country_event = { id = SdjEvent.2049 } } }
 	}
 
 	option = {
@@ -121,7 +121,7 @@ country_event = {
 				check_variable = { which = SdjVarMenuType value > 2.5 }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.2110 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2110 } } } country_event = { id = SdjEvent.2110 } } }
 	}
 	option = {
 		name = SdjEvent.2011.cat_specialist_1.name
@@ -132,7 +132,7 @@ country_event = {
 				check_variable = { which = SdjVarMenuType value > 2.5 }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.2121 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2121 } } } country_event = { id = SdjEvent.2121 } } }
 	}
 	option = {
 		name = SdjEvent.2011.cat_specialist_2.name
@@ -143,7 +143,7 @@ country_event = {
 				check_variable = { which = SdjVarMenuType value > 2.5 }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.2122 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2122 } } } country_event = { id = SdjEvent.2122 } } }
 	}
 	option = {
 		name = SdjEvent.2011.cat_worker.name
@@ -154,7 +154,7 @@ country_event = {
 				check_variable = { which = SdjVarMenuType value > 2.5 }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.2130 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2130 } } } country_event = { id = SdjEvent.2130 } } }
 	}
 
 	option = {
@@ -174,7 +174,7 @@ country_event = {
 				check_variable = { which = SdjVarMenuType value > 2.5 }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.2210 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2210 } } } country_event = { id = SdjEvent.2210 } } }
 	}
 	option = {
 		name = SdjEvent.2011.cat_simple_drone.name
@@ -185,7 +185,7 @@ country_event = {
 				check_variable = { which = SdjVarMenuType value > 2.5 }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.2220 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2220 } } } country_event = { id = SdjEvent.2220 } } }
 	}
 
 	option = {
@@ -198,17 +198,17 @@ country_event = {
 	option = {
 		name = SdjEvent.2011a1.name
 		custom_tooltip = SdjEvent.2011a1.tooltip
-		hidden_effect = { country_event = { id = SdjEvent.2031 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2031 } } } country_event = { id = SdjEvent.2031 } } }
 	}
 	option = {
 		name = SdjEvent.2011a2.name
 		custom_tooltip = SdjEvent.2011a2.tooltip
-		hidden_effect = { country_event = { id = SdjEvent.2032 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2032 } } } country_event = { id = SdjEvent.2032 } } }
 	}
 	option = {
 		name = SdjEvent.2011a3.name
 		custom_tooltip = SdjEvent.2011a3.tooltip
-		hidden_effect = { country_event = { id = SdjEvent.2033 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2033 } } } country_event = { id = SdjEvent.2033 } } }
 	}
 
 	option = {
@@ -231,19 +231,19 @@ country_event = {
 		name = SdjEvent.2011b1.name
 		custom_tooltip = SdjEvent.2011b1.tooltip
 		trigger = { any_system_within_border = { has_star_flag = SdjFlagSystemTemplateSavedOn1_@root } }
-		hidden_effect = { country_event = { id = SdjEvent.2041 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2041 } } } country_event = { id = SdjEvent.2041 } } }
 	}
 	option = {
 		name = SdjEvent.2011b2.name
 		custom_tooltip = SdjEvent.2011b2.tooltip
 		trigger = { any_system_within_border = { has_star_flag = SdjFlagSystemTemplateSavedOn2_@root } }
-		hidden_effect = { country_event = { id = SdjEvent.2042 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2042 } } } country_event = { id = SdjEvent.2042 } } }
 	}
 	option = {
 		name = SdjEvent.2011b3.name
 		custom_tooltip = SdjEvent.2011b3.tooltip
 		trigger = { any_system_within_border = { has_star_flag = SdjFlagSystemTemplateSavedOn3_@root } }
-		hidden_effect = { country_event = { id = SdjEvent.2043 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2043 } } } country_event = { id = SdjEvent.2043 } } }
 	}
 
 	option = {
@@ -323,19 +323,20 @@ country_event = {
 	#		country_event = { id = SdjEvent.2011 }
 	#	}
 	#}
-
 	option = {		## Other Configurations
 		name = SdjEvent.2011y.name
 		custom_tooltip = SdjEvent.2011y.tooltip
-		hidden_effect = { country_event = { id = SdjEvent.2022 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2022 } } } country_event = { id = SdjEvent.2022 } } }
 	}
-
+	### Exit Menu
 	option = {
 		name = SdjTextExit.name
 		custom_tooltip = SdjTextExit.tooltip
 		default_hide_option = yes
 		hidden_effect = { SdjEffectExitPriorityMenu = yes }
 	}
+	abort_trigger = { NOT = { has_country_flag = SdjFlagPriorityMenuOpened } }
+	abort_effect = { SdjEffectExitPriorityMenu = yes }
 }
 
 ### Additional Information
@@ -360,7 +361,7 @@ country_event = {
 		name = SdjEvent.2021a.name
 		custom_tooltip = SdjEvent.2021a.tooltip
 		default_hide_option = yes
-		hidden_effect = { country_event = { id = SdjEvent.2011 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } } }
 	}
 }
 
@@ -384,7 +385,11 @@ country_event = {
 	is_triggered_only = yes
 
 	after = {
-		hidden_effect = { country_event = { id = SdjEvent.2011 } }
+		hidden_effect = {
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
+				country_event = { id = SdjEvent.2011 }
+			}
+		}
 	}
 
 	option = {

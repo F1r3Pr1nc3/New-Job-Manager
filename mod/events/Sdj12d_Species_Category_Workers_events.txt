@@ -23,7 +23,7 @@ country_event = {
 			if = {
 				limit = { has_country_flag = SdjFlagSpMenu }
 				remove_country_flag = SdjFlagSpMenu
-				country_event = { id = SdjEvent.1013 }
+				if = { limit = { NOT = { has_active_event = { SdjEvent.1013 } } } country_event = { id = SdjEvent.1013 } }
 			} else = { country_event = { id = SdjEvent.1130 } }
 		}
 	}
@@ -691,9 +691,11 @@ country_event = {
 	#	custom_tooltip = SdjTextSeparator.tooltip
 	#	allow = { hidden_trigger = { always = no } }
 	#}
-	# option = {
-	#	name = SdjTextExit.name
-	#	custom_tooltip = SdjTextExit.tooltip
-	#	hidden_effect = { SdjEffectExitPriorityMenu = yes }
-	#}
+	option = {
+		name = SdjTextExit.name
+		custom_tooltip = SdjTextExit.tooltip
+		hidden_effect = { SdjEffectExitPriorityMenu = yes }
+	}
+	abort_trigger = { NOT = { has_country_flag = SdjFlagSpeciesMenuOpened } }
+	abort_effect = { SdjEffectExitPriorityMenu = yes }
 }

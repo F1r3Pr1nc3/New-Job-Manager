@@ -24,7 +24,7 @@ SdjEffectDetectExpantionPatch = {
 # 	optimize_memory
 # 	save_event_target_as = SdjTargetPopA
 # 	species = { save_event_target_as = SdjTargetSpeciesA }
-# 	root = { country_event = { id = SdjEvent.1013 } }
+# 	root = { if = { limit = { NOT = { has_active_event = { SdjEvent.1013 } } } country_event = { id = SdjEvent.1013 } } }
 # }
 
 ### Scopes: this = species, root = country

@@ -14,7 +14,7 @@
 
 ### Regular Empire
 SdjEdictCallPriorityMenuRegular = {
-	length = -1
+	length = 1
 	icon = "GFX_edict_type_policy"
 
 	resources = {
@@ -36,13 +36,13 @@ SdjEdictCallPriorityMenuRegular = {
 
 	effect = {
 		custom_tooltip = SdjEdictCallPriorityMenuRegular_tooltip
-		hidden_effect = { country_event = { id = SdjEvent.2011 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } } }
 	}
 }
 
 ### Gestalt Empire
 SdjEdictCallPriorityMenuGestalt = {
-	length = -1
+	length = 1
 	icon = "GFX_edict_type_policy"
 
 	resources = {
@@ -64,6 +64,6 @@ SdjEdictCallPriorityMenuGestalt = {
 
 	effect = {
 		custom_tooltip = SdjEdictCallPriorityMenuGestalt_tooltip
-		hidden_effect = { country_event = { id = SdjEvent.2011 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } } }
 	}
 }

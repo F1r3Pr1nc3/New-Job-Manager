@@ -26,6 +26,7 @@ namespace = SdjEvent
 #######################
 ###	Menu of Edict	###
 #######################
+# Species Menu
 country_event = {
 	id = SdjEvent.1011
 	desc = "SdjEvent.1011.desc"
@@ -143,7 +144,9 @@ country_event = {
 				}
 				event_target:SdjTargetPopA = {
 					species = { save_event_target_as = SdjTargetSpeciesA }
-					root = { country_event = { id = SdjEvent.1013 } }
+					root = {
+						if = { limit = { NOT = { has_active_event = { SdjEvent.1013 } } } country_event = { id = SdjEvent.1013 } }
+					}
 				}
 			}
 		}
@@ -152,19 +155,19 @@ country_event = {
 		name = SdjEvent.1011x.name
 		custom_tooltip = SdjEvent.1011x.tooltip
 		trigger = { check_variable = { which = SdjVarPageOfMenu value < 1.5 } }
-		hidden_effect = { country_event = { id = SdjEvent.1021 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1021 } } } country_event = { id = SdjEvent.1021 } } }
 	}
 	option = {		## Set Default to All Species
 		name = SdjEvent.1011y.name
 		custom_tooltip = SdjEvent.1011y.tooltip
 		trigger = { check_variable = { which = SdjVarPageOfMenu value < 1.5 } }
-		hidden_effect = { country_event = { id = SdjEvent.1019 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1019 } } } country_event = { id = SdjEvent.1019 } } }
 	}
 	option = {		## Default Right
 		name = SdjEvent.1011z.name
 		custom_tooltip = SdjEvent.1011z.tooltip
 		trigger = { check_variable = { which = SdjVarPageOfMenu value < 1.5 } }
-		hidden_effect = { country_event = { id = SdjEvent.1012 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1012 } } } country_event = { id = SdjEvent.1012 } } }
 	}
 	option = {
 		name = SdjEvent.1011a.name
@@ -301,7 +304,7 @@ country_event = {
 		trigger = { check_variable = { which = SdjVarSpeciesListedNum value > 12.5 } }
 		hidden_effect = {
 			change_variable = { which = SdjVarPageOfMenu value = 1 }
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
 	option = {
@@ -310,7 +313,7 @@ country_event = {
 		trigger = { check_variable = { which = SdjVarPageOfMenu value > 1.5 } }
 		hidden_effect = {
 			change_variable = { which = SdjVarPageOfMenu value = -1 }
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
 	option = {
@@ -318,24 +321,27 @@ country_event = {
 		custom_tooltip = SdjTextExit.tooltip
 		default_hide_option = yes
 		hidden_effect = {
-			remove_country_flag = SdjFlagSpeciesMenuOpened
-			every_owned_pop_species = { remove_species_flag = CmtFlagSpeciesAlreadyListed@root }
-			clear_variable = SdjVarSpeciesListedNum
-			clear_variable = SdjVarSpeciesTotalNum
-			clear_variable = SdjVarMaxPageOfMenu
+			SdjEffectExitPriorityMenu = yes
+			# remove_country_flag = SdjFlagSpeciesMenuOpened
+			# every_owned_pop_species = { remove_species_flag = CmtFlagSpeciesAlreadyListed@root }
+			# clear_variable = SdjVarSpeciesListedNum
+			# clear_variable = SdjVarSpeciesTotalNum
+			# clear_variable = SdjVarMaxPageOfMenu
 		}
 	}
+	abort_trigger = { NOT = { has_country_flag = SdjFlagSpeciesMenuOpened } }
+	abort_effect = { SdjEffectExitPriorityMenu = yes }
 }
 
 country_event = {		## Default Right
 	id = SdjEvent.1012
 	desc = "SdjEvent.1012.desc"
-	base = SdjEvent.1011
+	base = SdjEvent.1013
 	desc_clear = yes
 	option_clear = yes
 	is_triggered_only = yes
 	after = {
-		hidden_effect = { country_event = { id = SdjEvent.1011 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } } }
 	}
 	option = {
 		name = SdjTextKeepCurrent.name
@@ -448,21 +454,35 @@ country_event = {		## Default Right
 			custom_tooltip = { fail_text = SdjEvent.1012.FineTuning.fail.tooltip always = no }
 		}
 	}
+	abort_trigger = { NOT = { has_country_flag = SdjFlagSpeciesMenuOpened } }
+	abort_effect = { SdjEffectExitPriorityMenu = yes }
 }
 
 country_event = {		## Right of Each Species
 	id = SdjEvent.1013
-	# title = SdjEvent.1011.name
+	title = SdjEvent.1011.name
+	picture = {
+		trigger = { is_gestalt = no }
+		picture = GFX_evt_alien_propaganda
+	}
+	picture = {
+		trigger = { is_gestalt = yes is_hive_empire = yes }
+		picture = GFX_evt_hive_mind
+	}
+	picture = {
+		trigger = { is_gestalt = yes is_hive_empire = no }
+		picture = GFX_evt_machine_sapience
+	}
 	desc = SdjEvent.1013.desc
-	base = SdjEvent.1011
-	desc_clear = yes
-	option_clear = yes
+	# base = SdjEvent.1011
+	# desc_clear = yes
+	# option_clear = yes
 	is_triggered_only = yes
 	option = {
 		name = SdjTextKeepCurrent.name
 		custom_tooltip = SdjTextKeepCurrent.tooltip
 		default_hide_option = yes
-		hidden_effect = { country_event = { id = SdjEvent.1011 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } } }
 	}
 	option = {
 		name = SdjEvent.1013.def.name
@@ -503,7 +523,7 @@ country_event = {		## Right of Each Species
 					remove_species_flag = SdjFlagForbidden_job_corrupt_drone_@prev
 				}
 			}
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
 	option = {
@@ -528,7 +548,7 @@ country_event = {		## Right of Each Species
 					remove_species_flag = SdjFlagForbiddenRank1_@root
 				}
 			}
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
 	# option = {
@@ -559,7 +579,7 @@ country_event = {		## Right of Each Species
 					set_species_flag = SdjFlagForbiddenRank1_@root
 				}
 			}
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
 	option = {
@@ -584,7 +604,7 @@ country_event = {		## Right of Each Species
 					remove_species_flag = SdjFlagForbiddenRank1_@root
 				}
 			}
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
 	option = {
@@ -608,7 +628,7 @@ country_event = {		## Right of Each Species
 					remove_species_flag = SdjFlagForbiddenRank1_@root
 				}
 			}
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
 	# option = {
@@ -638,7 +658,7 @@ country_event = {		## Right of Each Species
 					set_species_flag = SdjFlagForbiddenRank1_@root
 				}
 			}
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
 	option = {
@@ -662,7 +682,7 @@ country_event = {		## Right of Each Species
 					set_species_flag = SdjFlagForbiddenRank1_@root
 				}
 			}
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
 	option = {
@@ -686,7 +706,7 @@ country_event = {		## Right of Each Species
 					remove_species_flag = SdjFlagForbiddenRank1_@root
 				}
 			}
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
 	# option = {
@@ -716,7 +736,7 @@ country_event = {		## Right of Each Species
 					set_species_flag = SdjFlagForbiddenRank1_@root
 				}
 			}
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
 	option = {
@@ -739,7 +759,7 @@ country_event = {		## Right of Each Species
 				event_target:SdjTargetSpeciesA = { NOT = { has_species_flag = SdjFlagForbiddenRank3_@root } }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.1110 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1110 } } } country_event = { id = SdjEvent.1110 } } }
 	}
 	option = {
 		name = SdjEvent.1013.Reg2a.name
@@ -754,7 +774,7 @@ country_event = {		## Right of Each Species
 				event_target:SdjTargetSpeciesA = { NOT = { has_species_flag = SdjFlagForbiddenRank2_@root } }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.1121 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1121 } } } country_event = { id = SdjEvent.1121 } } }
 	}
 	option = {
 		name = SdjEvent.1013.Reg2b.name
@@ -769,7 +789,7 @@ country_event = {		## Right of Each Species
 				event_target:SdjTargetSpeciesA = { NOT = { has_species_flag = SdjFlagForbiddenRank2_@root } }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.1122 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1122 } } } country_event = { id = SdjEvent.1122 } } }
 	}
 	option = {
 		name = SdjEvent.1013.Reg1.name
@@ -784,7 +804,7 @@ country_event = {		## Right of Each Species
 				event_target:SdjTargetSpeciesA = { NOT = { has_species_flag = SdjFlagForbiddenRank1_@root } }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.1130 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1130 } } } country_event = { id = SdjEvent.1130 } } }
 	}
 	option = {
 		name = SdjEvent.1013.Ges2.name
@@ -799,7 +819,7 @@ country_event = {		## Right of Each Species
 				event_target:SdjTargetSpeciesA = { NOT = { has_species_flag = SdjFlagForbiddenRank2_@root } }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.1210 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1210 } } } country_event = { id = SdjEvent.1210 } } }
 	}
 	option = {
 		name = SdjEvent.1013.Ges1.name
@@ -814,14 +834,14 @@ country_event = {		## Right of Each Species
 				event_target:SdjTargetSpeciesA = { NOT = { has_species_flag = SdjFlagForbiddenRank1_@root } }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.1220 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1220 } } } country_event = { id = SdjEvent.1220 } } }
 	}
 	### Templates
 	option = {
 		name = SdjEvent.1013.Template.name
 		custom_tooltip = SdjEvent.1013.Template.tooltip
 		trigger = { has_global_flag = SdjFlagExpansionPatchEnabled }
-		hidden_effect = { country_event = { id = SdjEvent.1030 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1030 } } } country_event = { id = SdjEvent.1030 } } }
 	}
 	### Modify Subspecies Separately
 	option = {
@@ -837,7 +857,7 @@ country_event = {		## Right of Each Species
 				# }
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.1022 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1022 } } } country_event = { id = SdjEvent.1022 } } }
 	}
 	option = {
 		name = SdjEvent.1013s2.name
@@ -857,20 +877,22 @@ country_event = {		## Right of Each Species
 				}
 			}
 		}
-		hidden_effect = { country_event = { id = SdjEvent.1022 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1022 } } } country_event = { id = SdjEvent.1022 } } }
 	}
+	abort_trigger = { NOT = { has_country_flag = SdjFlagSpeciesMenuOpened } }
+	abort_effect = { SdjEffectExitPriorityMenu = yes }
 }
 
 ### Return to Default
 country_event = {
 	id = SdjEvent.1019
 	desc = SdjEvent.1019.desc
-	base = SdjEvent.1011
+	base = SdjEvent.1013
 	desc_clear = yes
 	option_clear = yes
 	is_triggered_only = yes
 	after = {
-		hidden_effect = { country_event = { id = SdjEvent.1011 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } } }
 	}
 	option = {		## Cancel
 		name = SdjEvent.1019a.name
@@ -889,6 +911,8 @@ country_event = {
 			}
 		}
 	}
+	abort_trigger = { NOT = { has_country_flag = SdjFlagSpeciesMenuOpened } }
+	abort_effect = { SdjEffectExitPriorityMenu = yes }
 }
 
 ### More Information
@@ -902,12 +926,12 @@ country_event = {
 		trigger = { SdjTriggerAvailableCountryGestalt = yes }
 		text = SdjEvent.1021Ges.desc
 	}
-	base = SdjEvent.1011
+	base = SdjEvent.1013
 	desc_clear = yes
 	option_clear = yes
 	is_triggered_only = yes
 	after = {
-		hidden_effect = { country_event = { id = SdjEvent.1011 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } } }
 	}
 	option = {
 		name = "OK"
@@ -932,6 +956,8 @@ country_event = {
 		}
 		hidden_effect = { remove_country_flag = CmtFlagColorUniversal }
 	}
+	abort_trigger = { NOT = { has_country_flag = SdjFlagSpeciesMenuOpened } }
+	abort_effect = { SdjEffectExitPriorityMenu = yes }
 }
 
 ### Modify Sub-species
@@ -945,7 +971,7 @@ country_event = {
 		trigger = { event_target:SdjTargetSpeciesA = { has_species_flag = SdjFlagSubSpeciesModified_@root } }
 		text = SdjEvent.1022.desc2
 	}
-	base = SdjEvent.1011
+	base = SdjEvent.1013
 	desc_clear = yes
 	option_clear = yes
 	is_triggered_only = yes
@@ -953,7 +979,7 @@ country_event = {
 		name = SdjEvent.1019a.name
 		custom_tooltip = SdjEvent.1022a.tooltip
 		default_hide_option = yes
-		hidden_effect = { country_event = { id = SdjEvent.1013 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1013 } } } country_event = { id = SdjEvent.1013 } } }
 	}
 	option = {
 		name = SdjEvent.1022b.name
@@ -964,7 +990,7 @@ country_event = {
 				limit = { is_same_species = event_target:SdjTargetSpeciesA }
 				set_species_flag = SdjFlagSubSpeciesModified_@root
 			}
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
 	option = {
@@ -977,21 +1003,23 @@ country_event = {
 				remove_species_flag = SdjFlagSubSpeciesModified_@root
 				event_target:SdjTargetSpeciesA = { prev = { SdjEffectCopySpeciesJobRightSeparately = yes } }
 			}
-			country_event = { id = SdjEvent.1011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } }
 		}
 	}
+	abort_trigger = { NOT = { has_country_flag = SdjFlagSpeciesMenuOpened } }
+	abort_effect = { SdjEffectExitPriorityMenu = yes }
 }
 
 ### Template
 country_event = {
 	id = SdjEvent.1030
 	desc = SdjEvent.1030.desc
-	base = SdjEvent.1011
+	base = SdjEvent.1013
 	desc_clear = yes
 	option_clear = yes
 	is_triggered_only = yes
 	after = {
-		hidden_effect = { country_event = { id = SdjEvent.1013 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1013 } } } country_event = { id = SdjEvent.1013 } } }
 	}
 	option = {
 		name = SdjTextGoBack.name
@@ -2815,4 +2843,6 @@ country_event = {
 			}
 		}
 	}
+	abort_trigger = { NOT = { has_country_flag = SdjFlagSpeciesMenuOpened } }
+	abort_effect = { SdjEffectExitPriorityMenu = yes }
 }

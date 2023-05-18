@@ -27,9 +27,15 @@ SdjEffectExitPriorityMenu = {
 		}
 	}
 	SdjEffectCopyEmpirePriorityToNpcs = yes		## Put This before 'remove_country_flag = SdjFlagPriorityMenuOpened'
-	remove_country_flag = SdjFlagSpMenu
-	remove_country_flag = SdjFlagPriorityMenuOpened
-	remove_country_flag = SdjFlagPlanetPriorityMenuOpened
+	remove_country_flag = SdjFlagSpMenu # SdjEvent.1013
+	remove_country_flag = SdjFlagPriorityMenuOpened # SdjEvent.2011
+	remove_country_flag = SdjFlagPlanetPriorityMenuOpened # SdjEvent.2011
+
+	remove_country_flag = SdjFlagSpeciesMenuOpened # SdjEvent.1011
+	every_owned_pop_species = { remove_species_flag = CmtFlagSpeciesAlreadyListed@root }
+	clear_variable = SdjVarSpeciesListedNum
+	clear_variable = SdjVarSpeciesTotalNum
+	clear_variable = SdjVarMaxPageOfMenu
 }
 
 ### Scope: this = planet

@@ -11,7 +11,7 @@
 
 ### Regular Empire
 SdjEdictCallSpeciesMenuGestalt = {
-	length = -1
+	length = 1
 	icon = "GFX_edict_type_policy"
 
 	resources = {
@@ -33,6 +33,6 @@ SdjEdictCallSpeciesMenuGestalt = {
 
 	effect = {
 		custom_tooltip = SdjEdictCallSpeciesMenuGestalt_tooltip
-		hidden_effect = { country_event = { id = SdjEvent.1011 } }
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } } }
 	}
 }

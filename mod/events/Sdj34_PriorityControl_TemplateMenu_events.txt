@@ -23,12 +23,17 @@ country_event = {
 	is_triggered_only = yes
 
 	after = {
-		hidden_effect = { country_event = { id = SdjEvent.2011 } }
+		hidden_effect = {
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
+				country_event = { id = SdjEvent.2011 }
+			}
+		}
 	}
 
 	option = {
 		name = "CANCEL"
 		custom_tooltip = SdjEvent.2031a.tooltip
+		default_hide_option = yes
 	}
 
 	option = {
@@ -62,12 +67,17 @@ country_event = {
 	is_triggered_only = yes
 
 	after = {
-		hidden_effect = { country_event = { id = SdjEvent.2011 } }
+		hidden_effect = {
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
+				country_event = { id = SdjEvent.2011 }
+			}
+		}
 	}
 
 	option = {
 		name = "CANCEL"
 		custom_tooltip = SdjEvent.2032a.tooltip
+		default_hide_option = yes
 	}
 
 	option = {
@@ -101,12 +111,17 @@ country_event = {
 	is_triggered_only = yes
 
 	after = {
-		hidden_effect = { country_event = { id = SdjEvent.2011 } }
+		hidden_effect = {
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
+				country_event = { id = SdjEvent.2011 }
+			}
+		}
 	}
 
 	option = {
 		name = "CANCEL"
 		custom_tooltip = SdjEvent.2033a.tooltip
+		default_hide_option = yes
 	}
 
 	option = {
@@ -165,12 +180,17 @@ country_event = {		## Default (Vanilla)
 	is_triggered_only = yes
 
 	after = {
-		hidden_effect = { country_event = { id = SdjEvent.2011 } }
+		hidden_effect = {
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
+				country_event = { id = SdjEvent.2011 }
+			}
+		}
 	}
 
 	option = {
 		name = "CANCEL"
 		custom_tooltip = SdjEvent.2040a.tooltip
+		default_hide_option = yes
 	}
 
 	option = {
@@ -197,12 +217,17 @@ country_event = {
 	is_triggered_only = yes
 
 	after = {
-		hidden_effect = { country_event = { id = SdjEvent.2011 } }
+		hidden_effect = {
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
+				country_event = { id = SdjEvent.2011 }
+			}
+		}
 	}
 
 	option = {
 		name = "CANCEL"
 		custom_tooltip = SdjEvent.2041a.tooltip
+		default_hide_option = yes
 	}
 
 	option = {
@@ -232,12 +257,17 @@ country_event = {
 	is_triggered_only = yes
 
 	after = {
-		hidden_effect = { country_event = { id = SdjEvent.2011 } }
+		hidden_effect = {
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
+				country_event = { id = SdjEvent.2011 }
+			}
+		}
 	}
 
 	option = {
 		name = "CANCEL"
 		custom_tooltip = SdjEvent.2042a.tooltip
+		default_hide_option = yes
 	}
 
 	option = {
@@ -267,7 +297,11 @@ country_event = {
 	is_triggered_only = yes
 
 	after = {
-		hidden_effect = { country_event = { id = SdjEvent.2011 } }
+		hidden_effect = {
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
+				country_event = { id = SdjEvent.2011 }
+			}
+		}
 	}
 
 	option = {
@@ -307,7 +341,11 @@ country_event = {
 		name = "CANCEL"
 		custom_tooltip = SdjEvent.2049a.tooltip
 		default_hide_option = yes
-		hidden_effect = { country_event = { id = SdjEvent.2011 } }
+		hidden_effect = {
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
+				country_event = { id = SdjEvent.2011 }
+			}
+		}
 	}
 
 	option = {
@@ -315,7 +353,9 @@ country_event = {
 		custom_tooltip = SdjEvent.2049b.tooltip
 		hidden_effect = {
 			event_target:SdjTargetCurrentConfigurated = { SdjEffectCopyPriorityConfiguration = yes }
-			country_event = { id = SdjEvent.2011 }
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
+				country_event = { id = SdjEvent.2011 }
+			}
 		}
 	}
 
@@ -332,4 +372,6 @@ country_event = {
 			SdjEffectExitPriorityMenu = yes
 		}
 	}
+	abort_trigger = { NOT = { has_country_flag = SdjFlagPriorityMenuOpened } }
+	abort_effect = { SdjEffectExitPriorityMenu = yes }
 }
