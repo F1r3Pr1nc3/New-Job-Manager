@@ -24,9 +24,7 @@ country_event = {
 
 	after = {
 		hidden_effect = {
-			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
-				country_event = { id = SdjEvent.2011 }
-			}
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } }
 		}
 	}
 
@@ -68,9 +66,7 @@ country_event = {
 
 	after = {
 		hidden_effect = {
-			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
-				country_event = { id = SdjEvent.2011 }
-			}
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } }
 		}
 	}
 
@@ -112,9 +108,7 @@ country_event = {
 
 	after = {
 		hidden_effect = {
-			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
-				country_event = { id = SdjEvent.2011 }
-			}
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } }
 		}
 	}
 
@@ -181,9 +175,7 @@ country_event = {		## Default (Vanilla)
 
 	after = {
 		hidden_effect = {
-			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
-				country_event = { id = SdjEvent.2011 }
-			}
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } }
 		}
 	}
 
@@ -218,9 +210,7 @@ country_event = {
 
 	after = {
 		hidden_effect = {
-			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
-				country_event = { id = SdjEvent.2011 }
-			}
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } }
 		}
 	}
 
@@ -258,9 +248,7 @@ country_event = {
 
 	after = {
 		hidden_effect = {
-			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
-				country_event = { id = SdjEvent.2011 }
-			}
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } }
 		}
 	}
 
@@ -298,9 +286,7 @@ country_event = {
 
 	after = {
 		hidden_effect = {
-			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
-				country_event = { id = SdjEvent.2011 }
-			}
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } }
 		}
 	}
 
@@ -342,9 +328,7 @@ country_event = {
 		custom_tooltip = SdjEvent.2049a.tooltip
 		default_hide_option = yes
 		hidden_effect = {
-			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
-				country_event = { id = SdjEvent.2011 }
-			}
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } }
 		}
 	}
 
@@ -353,9 +337,7 @@ country_event = {
 		custom_tooltip = SdjEvent.2049b.tooltip
 		hidden_effect = {
 			event_target:SdjTargetCurrentConfigurated = { SdjEffectCopyPriorityConfiguration = yes }
-			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
-				country_event = { id = SdjEvent.2011 }
-			}
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } }
 		}
 	}
 

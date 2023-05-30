@@ -179,6 +179,20 @@ xeno_zoo_keeper = {
 		}
 	}
 
+	triggered_pop_modifier = {
+		potential = {
+			planet = {
+				exists = army_leader
+				army_leader = {
+					has_trait = leader_trait_academia_recruiter
+				}
+			}
+		}
+		modifier = {
+			pop_defense_armies_add = 1
+		}
+	}
+
 	triggered_planet_modifier = {
 		planet_amenities_add = 1
 		mult = value:zoo_keeper_amenity_output
@@ -1353,8 +1367,27 @@ healthcare = {
 			has_citizenship_rights = no
 			NOT = { has_trait = trait_mechanical }
 		}
-		modifier = { factor = 0.1 can_take_servant_job = yes }
-		modifier = { factor = 1.5 has_job = healthcare }
+		modifier = {
+			factor = 0.1
+			can_take_servant_job = yes
+		}
+		modifier = {
+			factor = 1.5
+			has_job = healthcare
+		}
+		modifier = {
+			factor = 2
+			owner = { has_valid_civic = civic_private_healthcare_corporate }
+		}
+		modifier = {
+			factor = 1.5
+			planet = {
+				has_branch_office = yes
+				branch_office_owner = {
+					has_valid_civic = civic_private_healthcare_corporate
+				}
+			}
+		}
 		modifier = {
 			factor = 0.5
 			is_enslaved = yes
@@ -1493,12 +1526,27 @@ necromancer = {
 		}
 	}
 
+	triggered_pop_modifier = {
+		potential = {
+			planet = {
+				exists = army_leader
+				army_leader = {
+					has_trait = leader_trait_academia_recruiter
+				}
+			}
+		}
+		modifier = {
+			pop_defense_armies_add = 1
+		}
+	}
+
 	possible_pre_triggers = {
 		has_owner = yes
 		is_being_purged = no
 		is_being_assimilated = no
 		is_sapient = yes
 	}
+
 	possible = {
 		battle_thrall_job_check_trigger = yes
 		SdjTriggerCheck_job_cat_specialist = yes
@@ -2448,6 +2496,20 @@ archaeoengineers = {
 			physics_research = 1
 			engineering_research = 1
 			society_research = 1
+		}
+	}
+
+	triggered_pop_modifier = {
+		potential = {
+			planet = {
+				exists = army_leader
+				army_leader = {
+					has_trait = leader_trait_academia_recruiter
+				}
+			}
+		}
+		modifier = {
+			pop_defense_armies_add = 1
 		}
 	}
 

@@ -386,9 +386,7 @@ country_event = {
 
 	after = {
 		hidden_effect = {
-			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } }
-				country_event = { id = SdjEvent.2011 }
-			}
+			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } }
 		}
 	}
 

@@ -812,6 +812,20 @@ soldier = {
 		}
 	}
 
+	triggered_planet_modifier = {
+		modifier = {
+			planet_building_build_speed_mult = 0.05
+		}
+		potential = {
+			planet = {
+				exists = army_leader
+				army_leader = {
+					has_trait = leader_trait_taskmaster
+				}
+			}
+		}
+	}
+
 	possible_pre_triggers = {
 		has_owner = yes
 		is_being_purged = no
@@ -1124,7 +1138,7 @@ angler = {
 		}
 		produces = {
 			trigger = {
-				has_councilor = { COUNCILOR = "councilor_anglers" } 
+				has_councilor = { COUNCILOR = "councilor_anglers" }
 			}
 
 			food = @councilor_anglers_angler_food_bonus
@@ -1162,7 +1176,7 @@ angler = {
 
 	triggered_planet_modifier = {
 		potential = {
-			has_councilor = { COUNCILOR = "councilor_corporate_anglers" } 
+			has_councilor = { COUNCILOR = "councilor_corporate_anglers" }
 		}
 
 		trade_value_add = @councilor_corporate_anglers_angler_trade_value_bonus
