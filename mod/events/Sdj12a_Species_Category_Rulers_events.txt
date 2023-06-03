@@ -14,9 +14,8 @@ namespace = SdjEvent
 #
 country_event = {
 	id = SdjEvent.1110
-	base = SdjEvent.1013
+	base = SdjEvent.1012
 	option_clear = yes
-	is_triggered_only = yes
 	after = {
 		hidden_effect = {
 			if = { limit = { has_country_flag = SdjFlagSpMenu }

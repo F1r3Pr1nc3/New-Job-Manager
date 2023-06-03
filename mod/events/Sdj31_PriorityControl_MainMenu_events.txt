@@ -67,11 +67,11 @@ namespace = SdjEvent
 ### Check Trigger Condition
 country_event = {
 	id = SdjEvent.2011
-	desc = SdjEvent.2011.desc
 	base = SdjEvent.1022
 	desc_clear = yes
 	option_clear = yes
-	is_triggered_only = yes
+	desc = SdjEvent.2011.desc
+
 	trigger = {
 		is_ai = no
 	}
@@ -87,7 +87,6 @@ country_event = {
 		}
 		set_variable = { which = SdjVarOpenedCategoryMenu value = 0 }
 	}
-
 	option = {		## More Information
 		name = "SdjEvent.1011x.name"
 		custom_tooltip = SdjEvent.2011x.tooltip
@@ -342,6 +341,9 @@ country_event = {
 ### Additional Information
 country_event = {
 	id = SdjEvent.2021
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	desc = {
 		trigger = { is_gestalt = no }
 		text = SdjEvent.2021Reg.desc
@@ -352,10 +354,7 @@ country_event = {
 		text = SdjEvent.2021Ges1.desc
 		text = SdjEvent.2021Ges2.desc
 	}
-	base = SdjEvent.1022
-	desc_clear = yes
-	option_clear = yes
-	is_triggered_only = yes
+
 
 	option = {
 		name = SdjEvent.2021a.name

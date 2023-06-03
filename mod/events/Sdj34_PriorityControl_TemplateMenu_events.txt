@@ -16,11 +16,10 @@ namespace = SdjEvent
 
 country_event = {
 	id = SdjEvent.2031
-	desc = SdjEvent.2031.desc
 	base = SdjEvent.1022
 	desc_clear = yes
 	option_clear = yes
-	is_triggered_only = yes
+	desc = SdjEvent.2031.desc
 
 	after = {
 		hidden_effect = {
@@ -58,11 +57,10 @@ country_event = {
 
 country_event = {
 	id = SdjEvent.2032
-	desc = SdjEvent.2032.desc
 	base = SdjEvent.1022
 	desc_clear = yes
 	option_clear = yes
-	is_triggered_only = yes
+	desc = SdjEvent.2032.desc
 
 	after = {
 		hidden_effect = {
@@ -100,11 +98,10 @@ country_event = {
 
 country_event = {
 	id = SdjEvent.2033
-	desc = SdjEvent.2033.desc
 	base = SdjEvent.1022
 	desc_clear = yes
 	option_clear = yes
-	is_triggered_only = yes
+	desc = SdjEvent.2033.desc
 
 	after = {
 		hidden_effect = {
@@ -146,6 +143,9 @@ country_event = {
 
 country_event = {		## Default (Vanilla)
 	id = SdjEvent.2040
+	base = SdjEvent.1022
+	desc_clear = yes
+	option_clear = yes
 	desc = {
 		trigger = {
 			NAND = {
@@ -168,10 +168,7 @@ country_event = {		## Default (Vanilla)
 		}
 		text = SdjEvent.2040b.desc
 	}
-	base = SdjEvent.1022
-	desc_clear = yes
-	option_clear = yes
-	is_triggered_only = yes
+
 
 	after = {
 		hidden_effect = {
@@ -202,11 +199,10 @@ country_event = {		## Default (Vanilla)
 
 country_event = {
 	id = SdjEvent.2041
-	desc = SdjEvent.2041.desc
 	base = SdjEvent.1022
 	desc_clear = yes
 	option_clear = yes
-	is_triggered_only = yes
+	desc = SdjEvent.2041.desc
 
 	after = {
 		hidden_effect = {
@@ -240,11 +236,10 @@ country_event = {
 
 country_event = {
 	id = SdjEvent.2042
-	desc = SdjEvent.2042.desc
 	base = SdjEvent.1022
 	desc_clear = yes
 	option_clear = yes
-	is_triggered_only = yes
+	desc = SdjEvent.2042.desc
 
 	after = {
 		hidden_effect = {
@@ -278,11 +273,10 @@ country_event = {
 
 country_event = {
 	id = SdjEvent.2043
-	desc = SdjEvent.2043.desc
 	base = SdjEvent.1022
 	desc_clear = yes
 	option_clear = yes
-	is_triggered_only = yes
+	desc = SdjEvent.2043.desc
 
 	after = {
 		hidden_effect = {
@@ -317,11 +311,10 @@ country_event = {
 ### Empire Standard
 country_event = {
 	id = SdjEvent.2049
-	desc = SdjEvent.2049.desc
 	base = SdjEvent.1022
 	desc_clear = yes
 	option_clear = yes
-	is_triggered_only = yes
+	desc = SdjEvent.2049.desc
 
 	option = {
 		name = "CANCEL"

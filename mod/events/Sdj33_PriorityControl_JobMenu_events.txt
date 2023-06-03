@@ -12,11 +12,10 @@ namespace = SdjEvent
 
 country_event = {
 	id = SdjEvent.2013
-	desc = SdjEvent.2013.desc
 	base = SdjEvent.1022
 	desc_clear = yes
 	option_clear = yes
-	is_triggered_only = yes
+	desc = SdjEvent.2013.desc
 
 	after = {
 		hidden_effect = {

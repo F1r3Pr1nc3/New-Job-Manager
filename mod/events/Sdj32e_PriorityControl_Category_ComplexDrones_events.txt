@@ -15,11 +15,10 @@ namespace = SdjEvent
 
 country_event = {
 	id = SdjEvent.2210
-	desc = "SdjEvent.2011.desc"
 	base = SdjEvent.1022
 	desc_clear = yes
 	option_clear = yes
-	is_triggered_only = yes
+	desc = "SdjEvent.2011.desc"
 
 	immediate = {
 		set_variable = { which = SdjVarOpenedCategoryMenu value = 2210 }
