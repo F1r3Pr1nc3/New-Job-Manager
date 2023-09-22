@@ -22,8 +22,9 @@ This [b]decision[/b] dismissed not only all rulers and specialists, but also all
 
 [h3]Compatibility Information[/h3]
 ✔️ Should be below [b]Ariphaos Patch[/b].
+✔️ Should be below [b]Vanilla Fixes[/b].
 ✔️ Should be compat. with [b]StarNet/StarTech AI[/b].
-• In general this mod is NOT compatible with mods that modify jobs.
+• In general this mod is NOT compatible with mods that modify vanilla jobs.
 
 The following Vanilla files are modified:[code]
 common/pop_jobs
@@ -35,12 +36,14 @@ common/pop_jobs
 	06_event_jobs.txt
 [/code]
 If another mod adds new jobs, these should still work as usual, just not influenced by this mod menu.
+✖️ NOT compat. with "Decision Origins - Play with Multiple Origins".
+
 If desired or if there is a conflict, then a separate patch would have to be created.
 
 [h3]Localisation[/h3]
 • English 🇺🇸 – NaK1119
 • Japanese 🇯🇵 – NaK1119 & [url=//steamcommunity.com/workshop/filedetails/2938432329]Rio Mizuhoshi's update[/url]
-• Russian 🇷🇺 – Inzeron? [url=//steamcommunity.com/workshop/filedetails/1375388095]PTP - Russian Localization[/url]
+• Russian 🇷🇺 – [url=////steamcommunity.com/sharedfiles/filedetails/2987048664]Hann[/url] - (previous Inzeron? [url=//steamcommunity.com/workshop/filedetails/1375388095]PTP - Russian Localization[/url])
 • Chinese 🇨🇳 – [url=//steamcommunity.com/workshop/filedetails/2131014154]鸽组汉化 Flora Edition[/url]
 
 [h3]Credit[/h3]

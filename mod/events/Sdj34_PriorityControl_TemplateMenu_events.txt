@@ -169,7 +169,6 @@ country_event = {		## Default (Vanilla)
 		text = SdjEvent.2040b.desc
 	}
 
-
 	after = {
 		hidden_effect = {
 			if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } }

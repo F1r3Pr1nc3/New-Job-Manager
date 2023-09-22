@@ -64,6 +64,122 @@ namespace = SdjEvent
 #
 #
 
+country_event = {
+	id = SdjEvent.1000
+	title = "edict_SdjEdictCallMenu"
+	desc = "edict_SdjEdictCallMenu_desc"
+	picture = GFX_evt_synth_sabotage
+	is_triggered_only = yes
+	trigger = {
+		NOR = {
+			is_ai = yes
+			has_active_event = { SdjEvent.1000 }
+		}
+	}
+	immediate = { set_global_flag = di_settings_active }
+	option = {
+		name = "SdjEvent.2022.name"
+		# custom_tooltip = {
+		# 	text = "edict_SdjEdictCallSpeciesMenuRegular_desc"
+		# 	fail_text = "edict_SdjEdictCallSpeciesMenuGestalt_desc"
+		# 	SdjTriggerAvailableCountryRegular = yes
+		# }
+		trigger = {
+			if = { limit = { SdjTriggerAvailableCountryRegular = yes } custom_tooltip = "edict_SdjEdictCallSpeciesMenuRegular_desc" }
+			else_if = { limit = { SdjTriggerAvailableCountryGestalt = yes } custom_tooltip = "edict_SdjEdictCallSpeciesMenuGestalt_desc" }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = SdjTextMenuOpenedNow
+				NOR = {
+					has_country_flag = SdjFlagSpeciesMenuOpened
+					has_country_flag = SdjFlagPriorityMenuOpened
+					has_active_event = { SdjEvent.2011 }
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = SdjEvent.2011 }
+		}
+	}
+	# option = {
+	# 	name = "edict_SdjEdictCallSpeciesMenuRegular"
+	# 	custom_tooltip = "edict_SdjEdictCallSpeciesMenuRegular_desc"
+	# 	trigger = { SdjTriggerAvailableCountryRegular = yes }
+	# 	allow = {
+	# 		custom_tooltip = {
+	# 			fail_text = SdjTextMenuOpenedNow
+	# 			NOR = {
+	# 				has_country_flag = SdjFlagSpeciesMenuOpened
+	# 				has_country_flag = SdjFlagPriorityMenuOpened
+	# 				has_active_event = { SdjEvent.2011 }
+	# 			}
+	# 		}
+	# 	}
+	# 	hidden_effect = {
+	# 		country_event = { id = SdjEvent.2011 }
+	# 	}
+	# }
+	# option = {
+	# 	name = "edict_SdjEdictCallSpeciesMenuGestalt"
+	# 	custom_tooltip = "edict_SdjEdictCallSpeciesMenuGestalt_desc"
+	# 	trigger = { SdjTriggerAvailableCountryGestalt = yes }
+	# 	allow = {
+	# 		custom_tooltip = {
+	# 			fail_text = SdjTextMenuOpenedNow
+	# 			NOR = {
+	# 				has_country_flag = SdjFlagSpeciesMenuOpened
+	# 				has_country_flag = SdjFlagPriorityMenuOpened
+	# 				has_active_event = { SdjEvent.2011 }
+	# 			}
+	# 		}
+	# 	}
+	# 	hidden_effect = {
+	# 		country_event = { id = SdjEvent.2011 }
+	# 	}
+	# }
+	option = {
+		name = "edict_SdjEdictCallSpeciesMenuRegular"
+		custom_tooltip = "edict_SdjEdictCallSpeciesMenuRegular_desc"
+		trigger = { SdjTriggerAvailableCountryRegular = yes }
+		allow = {
+			custom_tooltip = {
+				fail_text = SdjTextMenuOpenedNow
+				NOR = {
+					has_country_flag = SdjFlagSpeciesMenuOpened
+					has_country_flag = SdjFlagPriorityMenuOpened
+					has_active_event = { SdjEvent.1011 }
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = SdjEvent.1011 }
+		}
+	}
+	option = {
+		name = "edict_SdjEdictCallSpeciesMenuGestalt"
+		custom_tooltip = "edict_SdjEdictCallSpeciesMenuGestalt_desc"
+		trigger = { SdjTriggerAvailableCountryGestalt = yes }
+		allow = {
+			custom_tooltip = {
+				fail_text = SdjTextMenuOpenedNow
+				NOR = {
+					has_country_flag = SdjFlagSpeciesMenuOpened
+					has_country_flag = SdjFlagPriorityMenuOpened
+					has_active_event = { SdjEvent.1011 }
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = SdjEvent.1011 }
+		}
+	}
+	option = {
+		name = "EXIT"
+		# hidden_effect = { }
+	}
+}
+
 ### Check Trigger Condition
 country_event = {
 	id = SdjEvent.2011
@@ -72,9 +188,7 @@ country_event = {
 	option_clear = yes
 	desc = SdjEvent.2011.desc
 
-	trigger = {
-		is_ai = no
-	}
+	trigger = { is_ai = no }
 	immediate = {
 		set_country_flag = SdjFlagPriorityMenuOpened
 		if = {
@@ -105,7 +219,7 @@ country_event = {
 	}
 
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { hidden_trigger = { always = no } }
 	}
@@ -157,7 +271,7 @@ country_event = {
 	}
 
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		trigger = { check_variable = { which = SdjVarMenuType value > 2.5 } }
 		allow = { hidden_trigger = { always = no } }
@@ -188,7 +302,7 @@ country_event = {
 	}
 
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { hidden_trigger = { always = no } }
 	}
@@ -211,7 +325,7 @@ country_event = {
 	}
 
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		trigger = {
 			any_system_within_border = {
@@ -246,7 +360,7 @@ country_event = {
 	}
 
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { hidden_trigger = { always = no } }
 	}
@@ -355,9 +469,8 @@ country_event = {
 		text = SdjEvent.2021Ges2.desc
 	}
 
-
 	option = {
-		name = SdjEvent.2021a.name
+		name = OK # SdjEvent.2021a.name
 		custom_tooltip = SdjEvent.2021a.tooltip
 		default_hide_option = yes
 		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } } }
@@ -396,7 +509,7 @@ country_event = {
 	}
 
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { hidden_trigger = { always = no } }
 	}
@@ -419,7 +532,7 @@ country_event = {
 	}
 
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { hidden_trigger = { always = no } }
 	}

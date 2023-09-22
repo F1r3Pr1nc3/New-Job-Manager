@@ -1,6 +1,6 @@
-#################
-# Fancy Jobs	#
-#################
+###################
+# Fancy Jobs
+###################
 head_researcher = {
 	category = ruler
 	condition_string = RULER_JOB_TRIGGER
@@ -22,7 +22,6 @@ head_researcher = {
 	resources = {
 		category = planet_researchers
 		produces = {
-			unity = 2
 			physics_research = 6
 			engineering_research = 6
 			society_research = 6
@@ -118,12 +117,12 @@ high_priest = {
 	}
 	resources = {
 		category = planet_priests
-		produces = { unity = 6 }
+		produces = { unity = 8 }
 		upkeep = { consumer_goods = 2 }
 	}
 	triggered_planet_modifier = {
 		potential = { always = yes }
-		planet_amenities_add = 5
+		planet_amenities_add = 3
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 	weight = {
@@ -355,8 +354,13 @@ executive = {
 	}
 	resources = {
 		category = planet_executives
-		produces = { unity = 6 }
-		upkeep = { consumer_goods = 2 }
+		produces = {
+			unity = 5
+		}
+		upkeep = {
+			consumer_goods = 2
+			energy = 2
+		}
 	}
 	triggered_planet_modifier = {
 		potential = { always = yes }

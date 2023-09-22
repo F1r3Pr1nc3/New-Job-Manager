@@ -1,12 +1,11 @@
 ﻿l_english:
-
 ############################################
 ############################################
-#####									#####
-#####	Job Priority Manager			#####
-#####									#####
-#####	Systematic Localization Keys	#####
-#####									#####
+#####                                    #####
+#####    Job Priority Manager            #####
+#####                                    #####
+#####    Systematic Localization Keys    #####
+#####                                    #####
 ############################################
 ############################################
 
@@ -18,14 +17,14 @@
  SdjOption_cat_criminal.name:1 "£SdjPopCat_criminal£ $pop_cat_criminal$ $SdjTextBatchSetting$"
  SdjOption_cat_deviant_drone.name:1 "£SdjPopCat_deviant_drone£ $pop_cat_deviant_drone$ $SdjTextBatchSetting$"
  SdjOption_cat_corrupt_drone.name:1 "£SdjPopCat_corrupt_drone£ $pop_cat_corrupt_drone$ $SdjTextBatchSetting$"
- SdjOptionAllow_cat_ruler.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_ruler£ $pop_cat_ruler$$SdjTextAllowCatAllPost$"
- SdjOptionAllow_cat_specialist.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_specialist£ $pop_cat_specialist$$SdjTextAllowCatAllPost$"
- SdjOptionAllow_cat_worker.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_worker£ $pop_cat_worker$$SdjTextAllowCatAllPost$"
- SdjOptionAllow_cat_complex_drone.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_complex_drone£ $pop_cat_complex_drone$$SdjTextAllowCatAllPost$"
- SdjOptionAllow_cat_simple_drone.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_simple_drone£ $pop_cat_simple_drone$$SdjTextAllowCatAllPost$"
- SdjOptionAllow_cat_criminal.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_criminal£ $pop_cat_criminal$$SdjTextAllowCatAllPost$"
- SdjOptionAllow_cat_deviant_drone.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_deviant_drone£ $pop_cat_deviant_drone$$SdjTextAllowCatAllPost$"
- SdjOptionAllow_cat_corrupt_drone.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_corrupt_drone£ $pop_cat_corrupt_drone$$SdjTextAllowCatAllPost$"
+ SdjOptionAllow_cat_ruler.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_ruler£ $pop_cat_ruler$ $planet_jobs$"
+ SdjOptionAllow_cat_specialist.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_specialist£ $pop_cat_specialist$ $planet_jobs$"
+ SdjOptionAllow_cat_worker.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_worker£ $pop_cat_worker$ $planet_jobs$"
+ SdjOptionAllow_cat_complex_drone.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_complex_drone£ $pop_cat_complex_drone$ $planet_jobs$"
+ SdjOptionAllow_cat_simple_drone.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_simple_drone£ $pop_cat_simple_drone$ $planet_jobs$"
+ SdjOptionAllow_cat_criminal.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_criminal£ $pop_cat_criminal$ $planet_jobs$"
+ SdjOptionAllow_cat_deviant_drone.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_deviant_drone£ $pop_cat_deviant_drone$ $planet_jobs$"
+ SdjOptionAllow_cat_corrupt_drone.name:1 "$SdjTextAllowCatAllPre$£SdjPopCat_corrupt_drone£ $pop_cat_corrupt_drone$ $planet_jobs$"
  SdjOptionForbid_cat_ruler.name:1 "$SdjTextForbidCatAllPre$£SdjPopCat_ruler£ $pop_cat_ruler$$SdjTextForbidCatAllPost$"
  SdjOptionForbid_cat_specialist.name:1 "$SdjTextForbidCatAllPre$£SdjPopCat_specialist£ $pop_cat_specialist$$SdjTextForbidCatAllPost$"
  SdjOptionForbid_cat_worker.name:1 "$SdjTextForbidCatAllPre$£SdjPopCat_worker£ $pop_cat_worker$$SdjTextForbidCatAllPost$"

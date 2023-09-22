@@ -12,8 +12,7 @@
 #	memo: Difference of 2 Edicts is only trigger (potential) and localization key.
 #
 
-### Regular Empire
-SdjEdictCallPriorityMenuRegular = {
+edict_SdjEdictCallMenu = {
 	length = 1
 	icon = "GFX_edict_type_policy"
 
@@ -22,7 +21,12 @@ SdjEdictCallPriorityMenuRegular = {
 		cost = {}
 	}
 
-	potential = { SdjTriggerAvailableCountryRegular = yes }
+	potential = {
+		NOR = {
+			is_ai = yes
+			has_global_flag = dmm_installed
+		}
+	}
 	allow = {
 		custom_tooltip = {
 			fail_text = SdjTextMenuOpenedNow
@@ -35,35 +39,120 @@ SdjEdictCallPriorityMenuRegular = {
 	ai_weight = { weight = 0 }
 
 	effect = {
-		custom_tooltip = SdjEdictCallPriorityMenuRegular_tooltip
-		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } } }
+		custom_tooltip = edict_SdjEdictCallMenu_desc
+		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1000 } } } country_event = { id = SdjEvent.1000 } } }
 	}
 }
 
-### Gestalt Empire
-SdjEdictCallPriorityMenuGestalt = {
-	length = 1
-	icon = "GFX_edict_type_policy"
+# ### Regular Empire
+# SdjEdictCallPriorityMenuRegular = {
+# 	length = 1
+# 	icon = "GFX_edict_type_policy"
 
-	resources = {
-		category = campaigns
-		cost = {}
-	}
+# 	resources = {
+# 		category = campaigns
+# 		cost = {}
+# 	}
 
-	potential = { SdjTriggerAvailableCountryGestalt = yes }
-	allow = {
-		custom_tooltip = {
-			fail_text = SdjTextMenuOpenedNow
-			NOR = {
-				has_country_flag = SdjFlagSpeciesMenuOpened
-				has_country_flag = SdjFlagPriorityMenuOpened
-			}
-		}
-	}
-	ai_weight = { weight = 0 }
+# 	potential = { SdjTriggerAvailableCountryRegular = yes }
+# 	allow = {
+# 		custom_tooltip = {
+# 			fail_text = SdjTextMenuOpenedNow
+# 			NOR = {
+# 				has_country_flag = SdjFlagSpeciesMenuOpened
+# 				has_country_flag = SdjFlagPriorityMenuOpened
+# 			}
+# 		}
+# 	}
+# 	ai_weight = { weight = 0 }
 
-	effect = {
-		custom_tooltip = SdjEdictCallPriorityMenuGestalt_tooltip
-		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } } }
-	}
-}
+# 	effect = {
+# 		custom_tooltip = SdjEdictCallPriorityMenuRegular_tooltip
+# 		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } } }
+# 	}
+# }
+
+# ### Gestalt Empire
+# SdjEdictCallPriorityMenuGestalt = {
+# 	length = 1
+# 	icon = "GFX_edict_type_policy"
+
+# 	resources = {
+# 		category = campaigns
+# 		cost = {}
+# 	}
+
+# 	potential = { SdjTriggerAvailableCountryGestalt = yes }
+# 	allow = {
+# 		custom_tooltip = {
+# 			fail_text = SdjTextMenuOpenedNow
+# 			NOR = {
+# 				has_country_flag = SdjFlagSpeciesMenuOpened
+# 				has_country_flag = SdjFlagPriorityMenuOpened
+# 			}
+# 		}
+# 	}
+# 	ai_weight = { weight = 0 }
+
+# 	effect = {
+# 		custom_tooltip = SdjEdictCallPriorityMenuGestalt_tooltip
+# 		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.2011 } } } country_event = { id = SdjEvent.2011 } } }
+# 	}
+# }
+
+# #####	Species Discrimination on Job				#####
+
+# ### Regular Empire
+# SdjEdictCallSpeciesMenuRegular = {
+# 	length = 1
+# 	icon = "GFX_edict_type_policy"
+# 	resources = {
+# 		category = campaigns
+# 		cost = {}
+# 	}
+
+# 	potential = { SdjTriggerAvailableCountryRegular = yes }
+# 	allow = {
+# 		custom_tooltip = {
+# 			fail_text = SdjTextMenuOpenedNow
+# 			NOR = {
+# 				has_country_flag = SdjFlagSpeciesMenuOpened
+# 				has_country_flag = SdjFlagPriorityMenuOpened
+# 			}
+# 		}
+# 	}
+# 	ai_weight = { weight = 0 }
+
+# 	effect = {
+# 		custom_tooltip = edict_SdjEdictCallMenu_desc
+# 		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } } }
+# 	}
+# }
+
+# ### Gestalt Empire
+# SdjEdictCallSpeciesMenuGestalt = {
+# 	length = 1
+# 	icon = "GFX_edict_type_policy"
+
+# 	resources = {
+# 		category = campaigns
+# 		cost = {}
+# 	}
+
+# 	potential = { SdjTriggerAvailableCountryGestalt = yes }
+# 	allow = {
+# 		custom_tooltip = {
+# 			fail_text = SdjTextMenuOpenedNow
+# 			NOR = {
+# 				has_country_flag = SdjFlagSpeciesMenuOpened
+# 				has_country_flag = SdjFlagPriorityMenuOpened
+# 			}
+# 		}
+# 	}
+# 	ai_weight = { weight = 0 }
+
+# 	effect = {
+# 		custom_tooltip = SdjEdictCallSpeciesMenuGestalt_tooltip
+# 		hidden_effect = { if = { limit = { NOT = { has_active_event = { SdjEvent.1011 } } } country_event = { id = SdjEvent.1011 } } }
+# 	}
+# }

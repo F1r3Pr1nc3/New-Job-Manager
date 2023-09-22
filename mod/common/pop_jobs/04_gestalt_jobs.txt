@@ -904,13 +904,17 @@ catalytic_drone = {
 
 	resources = {
 		category = planet_metallurgists
-		produces = { alloys = 3 }
+		produces = {
+			alloys = 3.75
+		}
 		produces = {
 			trigger = {
 				exists = owner
-				owner = { is_robot_empire = yes }
+				owner = {
+					is_robot_empire = yes
+				}
 			}
-			alloys = 1
+			alloys = 1.25
 		}
 
 		upkeep = { food = 9 }
@@ -975,8 +979,42 @@ chemist_drone = {
 
 	resources = {
 		category = planet_chemists
-		produces = { volatile_motes = 2 }
-		upkeep = { minerals = 10 }
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_catalytic_empire = no
+				}
+			}
+			volatile_motes = 2
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_catalytic_empire = yes
+				}
+			}
+			volatile_motes = 2.5
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_catalytic_empire = no
+				}
+			}
+			minerals = 10
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_catalytic_empire = yes
+				}
+			}
+			food = 15
+		}
 	}
 
 	weight = {
@@ -1019,12 +1057,51 @@ translucer_drone = {
 
 	resources = {
 		category = planet_translucers
-		produces = { rare_crystals = 2 }
-		upkeep = { minerals = 10 }
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_catalytic_empire = no
+				}
+			}
+			rare_crystals = 2
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_catalytic_empire = yes
+				}
+			}
+			rare_crystals = 2.5
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_catalytic_empire = no
+				}
+			}
+			minerals = 10
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_catalytic_empire = yes
+				}
+			}
+			food = 15
+		}
 	}
 
 	weight = {
-		weight = @complex_drone_job_weight
+		weight = 1
+		modifier = {
+			factor = @complex_drone_job_weight
+			planet = { NAND = { is_variable_set = SdjVarJobPriority_job_translucer_drone check_variable = { which = SdjVarJobPriority_job_translucer_drone value > 0.5 } } }
+		}
+		modifier = { factor = planet.SdjVarJobPriority_job_translucer_drone planet = { is_variable_set = SdjVarJobPriority_job_translucer_drone check_variable = { which = SdjVarJobPriority_job_translucer_drone value > 0.5 } } }
 		mult = value:job_weights_modifier|JOB|translucer_drone|RESOURCE|rare_crystals|
 		modifier = {
 			factor = 0.9
@@ -1058,12 +1135,46 @@ gas_refiner_drone = {
 
 	resources = {
 		category = planet_refiners
-		produces = { exotic_gases = 2 }
-		upkeep = { minerals = 10 }
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_catalytic_empire = no
+				}
+			}
+			exotic_gases = 2
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_catalytic_empire = yes
+				}
+			}
+			exotic_gases = 2.5
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_catalytic_empire = no
+				}
+			}
+			minerals = 10
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_catalytic_empire = yes
+				}
+			}
+			food = 15
+		}
 	}
 
 	weight = {
-				weight = 1
+		weight = 1
 		modifier = {
 			factor = @complex_drone_job_weight
 			planet = { NAND = { is_variable_set = SdjVarJobPriority_job_gas_refiner_drone check_variable = { which = SdjVarJobPriority_job_gas_refiner_drone value > 0.5 } } }
@@ -1361,7 +1472,10 @@ agri_drone = {
 		produces = {
 			trigger = {
 				exists = owner
-				owner = { is_robot_empire = yes }
+				owner = {
+					is_robot_empire = yes
+					is_catalytic_empire = no
+				}
 			}
 			food = -1
 		}

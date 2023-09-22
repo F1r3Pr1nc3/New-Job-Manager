@@ -77,7 +77,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { hidden_trigger = { always = no } }
 	}
@@ -453,7 +453,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		trigger = {
 			# OR = {
@@ -705,7 +705,7 @@ country_event = {
 	}
 
 	# option = {
-	#	name = SdjTextSeparator.name
+	#	name = SEPARATOR
 	#	custom_tooltip = SdjTextSeparator.tooltip
 	#	allow = { hidden_trigger = { always = no } }
 	#}
@@ -783,7 +783,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { hidden_trigger = { always = no } }
 	}
@@ -1132,6 +1132,8 @@ country_event = {
 				event_target:SdjTargetSpeciesA = { NOT = { has_species_flag = SdjFlagForbidden_job_necro_apprentice_@root } }
 				OR = {
 					has_origin = origin_necrophage
+					has_country_flag = origin_necrophage
+					has_country_flag = decision_necrophage # Mod Decision Origins
 					check_variable = { which = SdjVarMenuType value > 1.5 }
 				}
 			}
@@ -1161,6 +1163,8 @@ country_event = {
 				event_target:SdjTargetSpeciesA = { has_species_flag = SdjFlagForbidden_job_necro_apprentice_@root }
 				OR = {
 					has_origin = origin_necrophage
+					has_country_flag = origin_necrophage
+					has_country_flag = decision_necrophage # Mod Decision Origins
 					check_variable = { which = SdjVarMenuType value > 1.5 }
 				}
 			}
@@ -1295,7 +1299,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		trigger = { always = yes }
 		allow = { hidden_trigger = { always = no } }
@@ -1411,7 +1415,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		trigger = { always = yes }
 		allow = { hidden_trigger = { always = no } }
@@ -1522,7 +1526,7 @@ country_event = {
 	}
 
 	# option = {
-	#	name = SdjTextSeparator.name
+	#	name = SEPARATOR
 	#	custom_tooltip = SdjTextSeparator.tooltip
 	#	allow = { hidden_trigger = { always = no } }
 	#}

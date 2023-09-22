@@ -42,7 +42,7 @@ country_event = {
 		hidden_effect = { set_variable = { which = SdjVarTargetJobCode value = @SdjConstCatCode_pop_cat_worker } }
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { hidden_trigger = { always = no } }
 	}
@@ -100,7 +100,7 @@ country_event = {
 		hidden_effect = { set_variable = { which = SdjVarTargetJobCode value = 40 } }
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		trigger = {
 			# hidden_trigger = {
@@ -192,7 +192,7 @@ country_event = {
 	}
 
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { hidden_trigger = { always = no } }
 	}

@@ -211,7 +211,7 @@ country_event = {
 		hidden_effect = { event_target:SdjTargetPop04 = { save_event_target_as = SdjTargetPopA } }
 	}
 	# option = {
-	# 	name = SdjTextSeparator.name
+	# 	name = SEPARATOR
 	# 	custom_tooltip = SdjTextSeparator.tooltip
 	# 	trigger = { check_variable = { which = SdjVarSpeciesListedNum value > 4.5 } }
 	# 	allow = { hidden_trigger = { always = no } }
@@ -253,7 +253,7 @@ country_event = {
 		hidden_effect = { event_target:SdjTargetPop08 = { save_event_target_as = SdjTargetPopA } }
 	}
 	# option = {
-	# 	name = SdjTextSeparator.name
+	# 	name = SEPARATOR
 	# 	custom_tooltip = SdjTextSeparator.tooltip
 	# 	trigger = { check_variable = { which = SdjVarSpeciesListedNum value > 8.5 } }
 	# 	allow = { hidden_trigger = { always = no } }
@@ -295,7 +295,7 @@ country_event = {
 		hidden_effect = { event_target:SdjTargetPop12 = { save_event_target_as = SdjTargetPopA } }
 	}
 	# option = {
-	# 	name = SdjTextSeparator.name
+	# 	name = SEPARATOR
 	# 	custom_tooltip = SdjTextSeparator.tooltip
 	# 	allow = { hidden_trigger = { always = no } }
 	# }
@@ -371,7 +371,7 @@ country_event = {		## Default Right
 		}
 	}
 	# option = {
-	# 	name = SdjTextSeparator.name
+	# 	name = SEPARATOR
 	# 	custom_tooltip = SdjTextSeparator.tooltip
 	# 	allow = { hidden_trigger = { always = no } }
 	# }
@@ -405,7 +405,7 @@ country_event = {		## Default Right
 		}
 	}
 	# option = {
-	# 	name = SdjTextSeparator.name
+	# 	name = SEPARATOR
 	# 	custom_tooltip = SdjTextSeparator.tooltip
 	# 	allow = { hidden_trigger = { always = no } }
 	# }
@@ -438,7 +438,7 @@ country_event = {		## Default Right
 		}
 	}
 	# option = {
-	# 	name = SdjTextSeparator.name
+	# 	name = SEPARATOR
 	# 	custom_tooltip = SdjTextSeparator.tooltip
 	# 	trigger = { SdjTriggerAvailableCountryGestalt = no }
 	# 	allow = { hidden_trigger = { always = no } }
@@ -453,7 +453,7 @@ country_event = {		## Default Right
 		}
 	}
 	# option = {
-	# 	name = SdjTextSeparator.name
+	# 	name = SEPARATOR
 	# 	custom_tooltip = SdjTextSeparator.tooltip
 	# 	trigger = { SdjTriggerAvailableCountryGestalt = no }
 	# 	allow = { hidden_trigger = { always = no } }
@@ -551,7 +551,7 @@ country_event = {		## Right of Each Species
 		}
 	}
 	# option = {
-	# 	name = SdjTextSeparator.name
+	# 	name = SEPARATOR
 	# 	custom_tooltip = SdjTextSeparator.tooltip
 	# 	trigger = { SdjTriggerAvailableCountryGestalt = no }
 	# 	allow = { hidden_trigger = { always = no } }
@@ -631,7 +631,7 @@ country_event = {		## Right of Each Species
 		}
 	}
 	# option = {
-	# 	name = SdjTextSeparator.name
+	# 	name = SEPARATOR
 	# 	custom_tooltip = SdjTextSeparator.tooltip
 	# 	allow = { hidden_trigger = { always = no } }
 	# }
@@ -709,7 +709,7 @@ country_event = {		## Right of Each Species
 		}
 	}
 	# option = {
-	# 	name = SdjTextSeparator.name
+	# 	name = SEPARATOR
 	# 	custom_tooltip = SdjTextSeparator.tooltip
 	# 	trigger = { SdjTriggerAvailableCountryGestalt = no }
 	# 	allow = { hidden_trigger = { always = no } }
@@ -739,7 +739,7 @@ country_event = {		## Right of Each Species
 		}
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		trigger = { has_global_flag = SdjFlagExpansionPatchEnabled }
 		allow = { hidden_trigger = { always = no } }
@@ -1039,7 +1039,7 @@ country_event = {
 		default_hide_option = yes
 	}
 	# option = {
-	# 	name = SdjTextSeparator.name
+	# 	name = SEPARATOR
 	# 	custom_tooltip = SdjTextSeparator.tooltip
 	# 	allow = { hidden_trigger = { always = no } }
 	# }
@@ -1945,7 +1945,7 @@ country_event = {
 		}
 	}
 	# option = {
-	# 	name = SdjTextSeparator.name
+	# 	name = SEPARATOR
 	# 	custom_tooltip = SdjTextSeparator.tooltip
 	# 	allow = { hidden_trigger = { always = no } }
 	# }

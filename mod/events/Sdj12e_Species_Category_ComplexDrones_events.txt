@@ -69,7 +69,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { hidden_trigger = { always = no } }
 	}
@@ -555,7 +555,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		trigger = {
 			# hidden_trigger = {
@@ -808,7 +808,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		trigger = {
 			# hidden_trigger = {
@@ -1062,7 +1062,7 @@ country_event = {
 	}
 
 	# option = {
-	#	name = SdjTextSeparator.name
+	#	name = SEPARATOR
 	#	custom_tooltip = SdjTextSeparator.tooltip
 	#	allow = { hidden_trigger = { always = no } }
 	#}

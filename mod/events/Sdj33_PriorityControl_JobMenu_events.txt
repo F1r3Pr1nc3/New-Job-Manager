@@ -834,7 +834,7 @@ country_event = {
 	}
 
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { always = no }
 	}
@@ -857,7 +857,7 @@ country_event = {
 	}
 
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { always = no }
 	}
@@ -885,7 +885,7 @@ country_event = {
 	}
 
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { always = no }
 	}

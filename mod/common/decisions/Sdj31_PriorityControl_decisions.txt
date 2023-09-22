@@ -200,8 +200,8 @@ SdjDecisionFireEveryone = {
 			if = {
 				limit = { always = yes }		## yes: standard, no: debug
 				add_modifier = { modifier = SdjModifierEveryoneFired months = 6 }
-				set_timed_planet_flag = { flag = SdjFlagEveryoneFired@owner days = 181 }
-				set_timed_planet_flag = { flag = SdjFlagEveryoneFiredRecently@owner days = 3600 }
+				set_timed_planet_flag = { flag = SdjFlagEveryoneFired@owner months = 6 }
+				set_timed_planet_flag = { flag = SdjFlagEveryoneFiredRecently@owner years = 10 }
 
 				planet_event = { id = SdjEvent.0301 days = 180 }
 				every_owned_pop = {

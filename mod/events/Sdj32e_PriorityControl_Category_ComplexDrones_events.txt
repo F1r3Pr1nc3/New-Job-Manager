@@ -42,7 +42,7 @@ country_event = {
 		hidden_effect = { set_variable = { which = SdjVarTargetJobCode value = @SdjConstCatCode_pop_cat_complex_drone } }
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { hidden_trigger = { always = no } }
 	}
@@ -152,7 +152,7 @@ country_event = {
 		hidden_effect = { set_variable = { which = SdjVarTargetJobCode value = 45 } }
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		trigger = {
 			# hidden_trigger = {
@@ -218,7 +218,7 @@ country_event = {
 		hidden_effect = { set_variable = { which = SdjVarTargetJobCode value = 70 } }
 	}
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		trigger = {
 			# hidden_trigger = {
@@ -285,7 +285,7 @@ country_event = {
 	}
 
 	option = {
-		name = SdjTextSeparator.name
+		name = SEPARATOR
 		custom_tooltip = SdjTextSeparator.tooltip
 		allow = { hidden_trigger = { always = no } }
 	}

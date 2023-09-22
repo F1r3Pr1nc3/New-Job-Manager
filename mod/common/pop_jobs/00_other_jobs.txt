@@ -210,6 +210,7 @@ organic_battery = {
 		has_owner = yes
 		is_enslaved = yes
 		is_sapient = yes
+		has_planet = yes
 	}
 
 	possible = {
@@ -255,6 +256,7 @@ livestock = {
 		has_owner = yes
 		is_enslaved = yes
 		is_sapient = yes
+		has_planet = yes
 	}
 
 	possible = {
@@ -323,6 +325,7 @@ livestock_zoo_animal = {
 		has_owner = yes
 		is_enslaved = yes
 		is_sapient = yes
+		has_planet = yes
 	}
 
 	possible = {
@@ -387,6 +390,7 @@ livestock_zoo_beast = {
 		has_owner = yes
 		is_enslaved = yes
 		is_sapient = yes
+		has_planet = yes
 	}
 
 	possible = {
@@ -462,7 +466,7 @@ bio_trophy = {
 			trigger = {
 				happiness >= 0.5
 			}
-			unity = 3
+			unity = 2
 		}
 	}
 
@@ -821,6 +825,7 @@ criminal = {
 	ignores_favorite = yes # this means that if you favorite e.g. clerks, the +1000 bonus will not matter for jobs working as criminals
 
 	possible_pre_triggers = {
+		has_planet = yes
 		has_owner = yes
 		is_sapient = yes
 	}
